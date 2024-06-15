@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block style %}
+<link rel="stylesheet" href="{% static 'market/css/market_style.css' %}">
+{% endblock style %}
+
+{% block title %}
+Innopolis University Merch
+{% endblock title %}
+
+{% block body %}
+<div class="container">
+    <div class="title">
+        <h2 class="text">All items</h2>
+    </div>
+    <div class="items">
+        {% for product in products %}
+        <div class="item-card">
+            <img src="{{ product.image.url }}" alt="{{ product.name }}">
+            <div class="item-info">
+                <h3>{{ product.name }}</h3>
+                <p class="price">{{ product.price }}</p>
+                <a href="#" class="view-button">view</a>
+            </div>
+        </div>
+        {% endfor %}
+
+
+    </div>
+</div>
+{% endblock body %}

@@ -1,0 +1,23 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        {% block style %}
+        {% endblock style %}
+        <title>
+            {% block title %}
+            Base Title
+            {% endblock title %}
+        </title>
+    </head>
+
+    <body>
+    {% include 'components/navbar.html' %}
+    <img class="pattern" src="{% static 'alumni/pictures/pattern.png' %}">
+    {% block body %}
+    Base Body
+    {% endblock body %}
+    </body>
+</html>
