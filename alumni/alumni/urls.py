@@ -25,6 +25,7 @@ from alumni import settings
 urlpatterns = [
     path('admin/', admin.site.urls),
     path("market/", include("market.urls")),
+    path("card_request/", include("card_request.urls")),
 ]
 
 if settings.DEBUG:

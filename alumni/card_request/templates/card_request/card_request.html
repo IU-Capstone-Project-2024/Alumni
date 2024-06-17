@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block style %}
+<link rel="stylesheet" href="{% static 'card_request/css/card_request.css' %}">
+{% endblock style %}
+
+{% block title %}
+Request for a University Entrance Card
+{% endblock title %}
+
+
+{% block body %}
+<div class="content">
+    <h1>Request for a University Entrance Card</h1>
+    <form class="form-container">
+        <div class="form-control-container">
+            <div class="form-control-label">
+                <input type="text" id="name" name="name" required placeholder="Name">
+            </div>
+        </div>
+        <div class="form-control-container">
+            <div class="form-control-label">
+                <input type="text" id="surname" name="surname" required placeholder="Surname">
+            </div>
+        </div>
+        <div class="form-control-container">
+            <div class="form-control-label">
+                <input type="email" id="email" name="email" required
+                       placeholder="E-mail (@innopolis.university domain)">
+            </div>
+        </div>
+        <div class="form-control-container">
+            <div class="form-control-label">
+                <input type="text" id="telegram" name="telegram" required placeholder="Telegram alias (with @)">
+            </div>
+        </div>
+        <div class="form-control-container">
+            <div class="form-control-label">
+                <input type="number" id="graduation-year" name="graduation-year" min="2014" max="" required
+                       placeholder="Graduation year">
+            </div>
+        </div>
+        <div class="form-control-container">
+            <div class="form-control-label">
+                <input type="text" id="receipt-date" name="receipt-date" required placeholder="Date for receipt">
+            </div>
+        </div>
+        <div>
+            <button type="submit"><strong>SEND</strong></button>
+        </div>
+    </form>
+</div>
+<script src="{% static 'card_request/js/card_request.js' %}"></script>
+{% endblock body %}
