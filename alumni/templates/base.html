@@ -2,21 +2,24 @@
 
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8"/>
-        <link rel="stylesheet" href="{% static 'alumni/market_style.css' %}">
-        <title>
-            {% block title %}
-            Base Title
-            {% endblock title %}
-        </title>
-    </head>
+<head>
+    <meta charset="utf-8"/>
+    <link rel="stylesheet" href="{% static 'alumni/market_style.css' %}">
+    <title>
+        {% block title %}
+        Base Title
+        {% endblock title %}
+    </title>
+</head>
 
-    <body>
+<body>
     {% include 'components/navbar.html' %}
     <img class="pattern" src="{% static 'alumni/pattern.png' %}">
     {% block body %}
     Base Body
     {% endblock body %}
-    </body>
+
+    <!-- AI Chat Widget -->
+    {% include 'components/ai_chat.html' %}
+</body>
 </html>
