@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block style %}
+<link rel="stylesheet" href="alumni\my_profile\static\my_profile\styles_profile.css">
+{% endblock style %}
+
+{% block title %}
+My profile
+{% endblock title %}
+
+{% block body %}
+    <div class="back-button">
+        <a href="#"><img src="back-arrow.png" alt="Back"></a>
+    </div>
+    <div class="container">
+        <h2>MY PROFILE</h2>
+        <div class="profile">
+            <div class="profile-left">
+                <div class="profile-picture"></div>
+                <h3>NAME SURNAME</h3>
+                <div class="profile-details">
+                    <div class="profile-info">
+                        <h4>GRADUATION YEAR:
+
+                            POSITION:
+
+                            COMPANY:
+                            
+                            LOCATION:</h4>
+                    </div>
+                </div>
+            </div>
+            <div class="profile-right">
+                <div class="section-interests">
+                    <h5>INTERESTS</h5>
+                </div>
+                <div class="section-activities">
+                    <h5>ACTIVITIES</h5>
+                </div>
+            </div>
+        </div>
+        <div class="edit-profile-container">
+            <button class="edit-profile-button">
+                <h6>Edit profile</h6>
+            </button>
+        </div>
+    </div>
+    <div class="chat-button">
+        <button>Chat</button>
+    </div>
+{% endblock body %}

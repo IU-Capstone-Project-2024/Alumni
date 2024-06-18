@@ -25,6 +25,8 @@ from alumni import settings
 urlpatterns = [
     path('admin/', admin.site.urls),
     path("market/", include("market.urls")),
+    path("login/", include("login.urls")),
+    path("my_profile/", include("my_profile.urls")),
 ]
 
 if settings.DEBUG:
