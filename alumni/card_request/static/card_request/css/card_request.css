@@ -1,7 +1,25 @@
+:root {
+    --black-10-percent:rgba(0, 0, 0, .1);
+    --black-8-percent:rgba(0, 0, 0, .08);
+    --green-style-color:#40BA21;
+    --green-style-light-color: #57D93F;
+    --green-style-dark-color: #2E7D17;
+    --main-white: #FFFFFF;
+    --invalid-background-color: #FEF2EF;
+    --invalid-border-color: #FBCBBF;
+}
+
 html, body {
-    font-family: Arial, sans-serif;
     overflow-x: hidden;
     background-color: var(--main-white);
+}
+
+body {
+    font-family: 'IBM Plex Sans', sans-serif;
+}
+
+h1, h2, h3 {
+    font-family: 'Montserrat', sans-serif;
 }
 
 .content {
@@ -36,20 +54,48 @@ html, body {
 
 .form-container input[type="text"],
 .form-container input[type="email"],
-.form-container input[type="number"],
 .form-container input[type="date"],
 .form-control-label input[type="text"].date-input {
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 14px;
     width: 100%;
     padding: 2.5%;
     border: 1px solid var(--black-10-percent);
     border-radius: 5px;
     box-sizing: border-box;
     background-color: var(--black-8-percent);
-    font: 1rem sans-serif;
+}
+
+.form-container input.error {
+    border-color: var(--invalid-border-color);
+    background-color: var(--invalid-background-color);
+}
+
+.error-message {
+    color: red;
+    margin-top: 4px;
+    font-size: 0.875em;
+}
+
+.success-alert {
+    background-color: var(--green-style-color);
+    color: var(--main-white);
+    padding: 20px;
+    text-align: center;
+    font-size: 1.25rem;
+    position: fixed;
+    top: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 300px;
+    z-index: 1001;
+    border-radius: 10px;
+    opacity: 0.85;
 }
 
 .form-container input:focus {
     outline: none;
+    background-color: var(--main-white);
     border-color: var(--green-style-color);
 }
 
@@ -62,6 +108,8 @@ html, body {
     padding: 15px;
     margin-top: 2%;
     font-size: large;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
     background-color: var(--green-style-color);
     color: var(--main-white);
     border: none;
@@ -76,13 +124,4 @@ html, body {
 
 .form-container button:active {
     border: 2px solid var(--green-style-dark-color);
-}
-
-:root {
-    --black-10-percent:rgba(0, 0, 0, .1);
-    --black-8-percent:rgba(0, 0, 0, .08);
-    --green-style-color:#40BA21;
-    --green-style-light-color: #57D93F;
-    --green-style-dark-color: #2E7D17;
-    --main-white: #FFFFFF
 }
