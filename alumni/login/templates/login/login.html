@@ -1,27 +1,29 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Innopolis University Login</title>
-    <link rel="stylesheet" href="styles_login.css">
-</head>
-<body>
+{% load static %}
+
+{% block style %}
+<link rel="stylesheet" href="{% static 'login/styles_login.css' %}">
+{% endblock style %}
+
+{% block body %}
     <div class="container">
         <div class="image-section">
-            <img src="uni.png" alt="Innopolis University Building">
+            <img src="{% static 'login/uni.png' %}" alt="Innopolis University Building">
         </div>
         <div class="login-section">
             <div class="logo">
-                <img src="logo_alumni.png" alt="Innopolis University Logo">
+                <img src="{% static 'login/logo_alumni.png' %}" alt="Innopolis University Logo">
             </div>
             <h2>JOIN</h2>
-            <form>
-                <input type="email" placeholder="Email">
-                <input type="password" placeholder="Password">
-                <button type="submit">LOGIN</button>
+            <form method="post" action="{% url 'login' %}">
+                {% csrf_token %}
+                <input type="email" name="username" placeholder="Email" required>
+                <input type="password" name="password" placeholder="Password" required>
+                <button type="submit">
+                    LOGIN</button>
             </form>
+            {% if error %}
+                <div class="error-message">{{ error }}</div>
+            {% endif %}
         </div>
     </div>
-</body>
-</html>
+{% endblock body %}

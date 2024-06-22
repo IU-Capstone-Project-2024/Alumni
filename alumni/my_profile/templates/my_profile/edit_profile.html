@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block style %}
+<link rel="stylesheet" href="{% static 'my_profile/styles_profile.css' %}">
+{% endblock style %}
+
+{% block title %}
+Edit profile
+{% endblock title %}
+
+{% block body %}
+    <div class="back-button">
+        <a href="#"><img src="{%static 'my_profile/back-arrow.png' %}" alt="Back"></a>
+    </div>
+    <div class="container">
+        <h2>Edit Profile</h2>
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="profile">
+                <div class="profile-left">
+                    <div class="profile-picture">
+                    
+                        
+                        <label for="id_user_photo" style="display: block; margin-bottom: 5px;"></label>
+                        <img src="{% if user_profile.user_photo %}{{ user_profile.user_photo.url }}{% else %}{% static 'my_profile/user_photo.png' %}{% endif %}" alt="Profile Picture" style="width: 201px;
+                    height: 194px;
+                    position: absolute;
+                    top: 0.1%;
+                    background-color: #D9D9D9;
+                    border-radius: 50%;
+                ">
+                        <input type="file" name="user_photo" id="id_user_photo" value="{{profile_form.user_photo.value}}" style="margin-top: 190px; width: 100%; padding: 5px;">
+                    </div>
+                    <h3>{{ request.user.first_name }} {{ request.user.last_name }}</h3>
+                    <div class="profile-details">
+                        <div class="profile-info">
+                            <h4>
+                                <label for="id_graduation_year">Graduation Year:</label>
+                                <input type="number" name="graduation_year" id="id_graduation_year" value="{{ profile_form.graduation_year.value }}" style="width: 170%; height: 25px; border-radius: 7px;">
+                                
+                                <label for="id_position">Position:</label>
+                                <input type="text" name="position" id="id_position" value="{{ profile_form.position.value }}" style="width: 170%; height: 25px; border-radius: 7px;">
+
+                                <label for="id_company">Company:</label>
+                                <input type="text" name="company" id="id_company" value="{{ profile_form.company.value }}" style="width: 170%; height: 25px; border-radius: 7px;">
+                                
+                                <label for="id_location">Location:</label>
+                                <input type="text" name="location" id="id_location" value="{{ profile_form.location.value }}" style="width: 170%; height: 25px; border-radius: 7px;"></h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="profile-right">
+                    <div class="section-interests">
+                        <h5><label for="id_interests">Interests:</label>
+                            <textarea name="interests" id="id_interests" style="width: 470px; height: 225px; background-color: #EDF1F5; border-color: #EDF1F5;">
+                                {{ profile_form.interests.value }}</textarea></h5>
+                        
+                    </div>
+                    <div class="section-activities">
+                        <h5><label for="id_activities">Activities:</label>
+                            <textarea name="activities" id="id_activities" style="width: 470px; height: 395px; background-color: #EDF1F5; border-color: #EDF1F5;">
+                                {{ profile_form.activities.value }}</textarea></h5>
+                    </div>
+                </div>
+            </div>
+            </form>
+            <div class="edit-profile-container">
+                <button class="edit-profile-button">
+                    <a href="{% url 'profile' %}">
+                        <h6>Save changes</h6>
+                    </a>
+                </button>
+            </div>
+        </div>
+        <div class="chat-button">
+            <button>Chat</button>
+        </div>
+{% endblock body %}

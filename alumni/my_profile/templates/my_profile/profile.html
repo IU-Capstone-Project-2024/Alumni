@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block style %}
-<link rel="stylesheet" href="alumni\my_profile\static\my_profile\styles_profile.css">
+<link rel="stylesheet" href="{% static 'my_profile/styles_profile.css' %}">
 {% endblock style %}
 
 {% block title %}
@@ -10,43 +10,59 @@ My profile
 {% endblock title %}
 
 {% block body %}
+{% if user.is_authenticated %}
     <div class="back-button">
-        <a href="#"><img src="alumni\my_profile\static\my_profile\back-arrow.png" alt="Back"></a>
+        <a href="#"><img src="{%static 'my_profile/back-arrow.png' %}" alt="Back"></a>
     </div>
     <div class="container">
         <h2>MY PROFILE</h2>
         <div class="profile">
             <div class="profile-left">
-                <div class="profile-picture"></div>
-                <h3>NAME SURNAME</h3>
+                <div class="profile-picture">
+                    <img src="{% if user_profile.user_photo %}{{ user_profile.user_photo.url }}{% else %}{% static 'my_profile/user_photo.png' %}{% endif %}" alt="Profile Picture" style="width: 201px;
+                    height: 194px;
+                    position: absolute;
+                    top: 0.1%;
+                    background-color: #D9D9D9;
+                    border-radius: 50%;
+                ">
+                </div>
+                <h3>{{ request.user.first_name }} {{ request.user.last_name }}</h3>
                 <div class="profile-details">
                     <div class="profile-info">
-                        <h4>GRADUATION YEAR:
+                        <h4>GRADUATION YEAR: {{ user_profile.graduation_year }}
 
-                            POSITION:
+                            POSITION: {{ user_profile.position }}
 
-                            COMPANY:
+                            COMPANY: {{ user_profile.company }}
                             
-                            LOCATION:</h4>
+                            LOCATION:{{ user_profile.location }}</h4>
                     </div>
                 </div>
             </div>
             <div class="profile-right">
                 <div class="section-interests">
                     <h5>INTERESTS</h5>
+                    <p>{% if user_profile.interests %}{{user_profile.interests}}{% else %}{% endif %}</p>
                 </div>
                 <div class="section-activities">
                     <h5>ACTIVITIES</h5>
+                    <p>{% if user_profile.activities %}{{user_profile.activities}}{% else %}{% endif %}</p>
                 </div>
             </div>
         </div>
         <div class="edit-profile-container">
             <button class="edit-profile-button">
-                <h6>Edit profile</h6>
+                <a href="{% url 'edit_profile' %}">
+                    <h6>Edit profile</h6>
+                </a>
             </button>
         </div>
     </div>
     <div class="chat-button">
         <button>Chat</button>
     </div>
+    {% else %}
+        <p>You are not logged in. Please <a href="{% url 'login' %}">login</a></p>
+    {% endif %}
 {% endblock body %}

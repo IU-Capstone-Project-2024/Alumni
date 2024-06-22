@@ -17,8 +17,11 @@ body, html {
 
 .back-button {
     position: absolute;
-    top: 20px;
-    left: 20px;
+ 
+    left: 9.72%;
+    right: 87.72%;
+    top: 16.4%;
+    bottom: 81.69%;
 }
 
 .back-button a {
@@ -33,10 +36,9 @@ body, html {
 }
 
 .container {
-    height: 1000px;
-    width: 1440px;
+    max-width: 1200px;
     background-color: #fff;
-    margin-top: 20px;
+    margin-top: 800px;
     padding: 20px;
     border-radius: 10px;
     display: flex;
@@ -45,9 +47,23 @@ body, html {
 }
 
 h2 {
-    color: #40BA21;
-    margin-bottom: 20px;
+    /* My profile */
+
+    position: absolute;
+    left: 40.35%;
+    right: 40%;
+    top: 40.4%;
+    bottom: 76.12%;
+
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 700;
     font-size: 30px;
+    line-height: 120%;
+    /* or 36px */
+    text-align: center;
+    text-transform: uppercase;
+    color: #40BA21;
 }
 
 .profile {
@@ -65,9 +81,9 @@ h2 {
     flex-direction: column;
     align-items: center;
     position: absolute;
-    left: 21.25%;
+    left: 33.25%;
     right: 59.31%;
-    top: 24.87%;
+    top: 50.87%;
     bottom: 31.89%;
     background-color: #EDF1F5;
     border-radius: 30px;
@@ -106,10 +122,10 @@ h2 {
     width: 280px;
     height: 288px;
     position: absolute;
-    left: 1%;
-    top: 105%;
+    left: 0.3%;
+    top: 106.5%;
     bottom: 5%;
-    background: #D9D9D9;
+    background-color: #EDF1F5;
     border-radius: 30px;
 }
 
@@ -125,7 +141,7 @@ h4 {
     font-family: 'Montserrat';
     font-style: normal;
     font-weight: 600;
-    font-size: 16px;
+    font-size: 14px;
     line-height: 200%;
     /* or 17px */
     text-transform: uppercase;
@@ -145,9 +161,9 @@ h4 {
     width: 280px;
     height: 83px;
     position: absolute;
-    left: 21.25%;
+    left: 33.3%;
     right: 59.31%;
-    top: 116.5%;
+    top: 146.5%;
     bottom: 10%;
     border: none;
     border-radius: 30px;
@@ -185,9 +201,9 @@ h6 {
     width: 512px;
     height: 277px;
     position: absolute;
-    left: 43.12%;
-    right: 21.32%;
-    top: 24.87%;
+    left: 46.25%;
+    right: 40%;
+    top: 50.87%;
     bottom: 56.96%;
     background: #EDF1F5;
     border-radius: 30px;
@@ -215,9 +231,9 @@ h5 {
     width: 512px;
     height: 459px;
     position: absolute;
-    left: 43.12%;
-    right: 21.32%;
-    top: 65%;
+    left: 46.25%;
+    right: 40%;
+    top: 94%;
     bottom: 24.87%;
     background: #EDF1F5;
     border-radius: 30px;
