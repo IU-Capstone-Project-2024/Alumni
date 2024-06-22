@@ -1,17 +1,21 @@
-.pattern {
-    padding-top: 3%;
-}
-
 body {
-    font-family: Arial, sans-serif;
+    font-family: IBM, sans-serif;
     background-color: white;
     margin: 0;
     padding: 20px;
 }
 
+html, body {
+    overflow-x: hidden;
+}
+
 .container {
     max-width: 1200px;
     margin: 0 auto;
+}
+
+.text {
+    font-family: Montserrat , sans-serif;
 }
 
 .title {
@@ -41,7 +45,7 @@ body {
 .title h2 {
     font-size: 35px;
     margin: 0;
-    color: #4CAF50;
+    color: #40BA21;
 }
 
 .items {
@@ -86,7 +90,7 @@ body {
 }
 
 .item-card .item-info .price {
-    color: green;
+    color: #40BA21;
     font-weight: bold;
     margin: 10px 0;
 }
@@ -95,7 +99,7 @@ body {
     display: inline-block;
     padding: 10px 20px;
     margin-top: 10px;
-    background-color: #4CAF50;
+    background-color: #40BA21;
     color: white;
     border: none;
     border-radius: 5px;
@@ -107,7 +111,7 @@ body {
 }
 
 .view-button {
-    background-color: #28a745;
+    background-color: #40BA21;
     color: white;
     padding: 10px 20px;
     text-decoration: none;
