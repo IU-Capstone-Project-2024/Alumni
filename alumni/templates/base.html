@@ -4,8 +4,7 @@
 <html>
     <head>
         <meta charset="utf-8"/>
-        {% block style %}
-        {% endblock style %}
+        <link rel="stylesheet" href="{% static 'alumni/market_style.css' %}">
         <title>
             {% block title %}
             Base Title
@@ -15,7 +14,7 @@
 
     <body>
     {% include 'components/navbar.html' %}
-    <img class="pattern" src="{% static 'alumni/pictures/pattern.png' %}">
+    <img class="pattern" src="{% static 'alumni/pattern.png' %}">
     {% block body %}
     Base Body
     {% endblock body %}
