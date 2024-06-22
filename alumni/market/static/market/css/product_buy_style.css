@@ -1,0 +1,127 @@
+body {
+    font-family: IBM, sans-serif;
+    background-color: white;
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 30%;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: white;
+}
+
+.title {
+    font-family: Montserrat , sans-serif;
+}
+
+.back-link {
+    color: #40BA21;
+    text-decoration: none;
+    font-size: 16px;
+    display: inline-block;
+    margin-bottom: 20px;
+    padding: 2%;
+}
+
+.back-link:hover {
+    color: #40BA21;
+    text-decoration: none;
+    font-size: 16px;
+    display: inline-block;
+    margin-bottom: 20px;
+    padding: 2%;
+    border-radius: 20px;
+    background-color: #F2F8F2;
+}
+
+h1 {
+    margin-top: 0;
+    color: #40BA21;
+}
+
+.order-details {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.item-image {
+    width: 80px;
+    height: 80px;
+    background-color: #e0e0e0;
+    margin-right: 20px;
+}
+
+.item-info {
+    flex-grow: 1;
+}
+
+.item-info h2 {
+    margin: 0;
+}
+
+.item-info p {
+    margin: 5px 0;
+}
+
+.price {
+    font-weight: bold;
+}
+
+.order-form input {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.order-form h3 {
+    margin: 20px 0 10px;
+}
+
+.order-form p {
+    margin: 5px 0 20px;
+}
+
+.payment-options {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+.payment-option {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.payment-option input {
+    margin-left: 10px;
+}
+
+.order-form button {
+    width: 40%;
+    padding: 10px;
+    background-color: #40BA21;
+    color: #fff;
+    border: none;
+    border-radius: 13px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-left: 30%;
+}
+
+.order-form button:hover {
+    background-color: darkgreen;
+}
+
+.form {
+    background-color: #F2F2F2;
+}

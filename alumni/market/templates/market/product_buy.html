@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block style %}
+<link rel="stylesheet" href="{% static 'market/css/product_buy_style.css' %}">
+{% endblock style %}
+
+{% block title %}
+Buy {{ product.name }}
+{% endblock title %}
+
+{% block body %}
+<div class="container">
+    <a href="{% url 'product_list' %}" class="back-link">↩ to the InnoStore</a>
+    <h1 class="title">Your order</h1>
+    <div class="order-details">
+        <div class="item-info">
+            <h2>{{ product.name }}</h2>
+            <p class="price">{{ product.price }} ₽</p>
+            {% if product.has_sizes %}
+            <p class="size">Size: {{ selected_size }}</p>
+            {% endif %}
+        </div>
+    </div>
+    <form action="#" method="POST" class="order-form">
+        {% csrf_token %}
+        <input type="text" name="name" placeholder="Name *" class="form" required>
+        <input type="text" name="surname" placeholder="Surname *" class="form" required>
+        <input type="email" name="email" placeholder="Email *" class="form" required>
+        <h3>Delivery</h3>
+        <p>Self-delivery (only from Innopolis)</p>
+        <h3>Payment Method</h3>
+        <div class="payment-options">
+            <label class="payment-option">
+                Pay upon delivery
+                <input type="radio" name="payment_method" value="upon delivery" checked>
+            </label>
+            <label class="payment-option">
+                Pay now with card
+                <input type="radio" name="payment_method" value="card">
+            </label>
+        </div>
+        <button type="submit" onclick="showSuccessAlert()">Place an order</button>
+    </form>
+</div>
+{% endblock body %}

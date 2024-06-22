@@ -27,6 +27,7 @@ urlpatterns = [
     path("market/", include("market.urls")),
     path("login/", include("login.urls")),
     path("my_profile/", include("my_profile.urls")),
+    path("card_request/", include("card_request.urls")),
 ]
 
 if settings.DEBUG:
