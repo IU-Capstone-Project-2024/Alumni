@@ -3,9 +3,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.core.mail import send_mail
 from .models import Product
-import smtplib
-from email.mime.multipart import MIMEMultipart
-from email.mime.text import MIMEText
+from django.conf import settings
 
 
 def product_list(request):
@@ -36,10 +34,10 @@ def product_buy(request, product_id):
         payment_method = request.POST.get('payment_method')
 
         send_mail(
-            name + " " + surname + "purchase",
+            name + " " + surname + " purchase",
             "Your order has been successfully accepted, go to "
             "room 319 and give the employee your first and last name.",
-            "a.akhmetova@innopolis.university",
+            settings.EMAIL_HOST_USER,
             [email],
             fail_silently=False,
         )
@@ -47,8 +45,8 @@ def product_buy(request, product_id):
         send_mail(
             name + " " + surname + " purchase",
             "Ordering: " + product.name + "\nMethod of Payment: " + payment_method,
-            "a.akhmetova@innopolis.university",
-            [email],
+            settings.EMAIL_HOST_USER,
+            [settings.EMAIL_HOST_USER],
             fail_silently=False,
         )
 
