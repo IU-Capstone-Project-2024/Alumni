@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Mentorship Form
+{% endblock title %}
+
+{% block style %}
+<link rel="stylesheet" href="{% static 'mentorship/styles_form.css' %}">
+{% endblock style %}
+
+{% block body %}
+<div class="content">
+    <h1 class="form-header">Please, introduce yourself for the better match with your future mentees.</h1>
+    <form class="mentor-form">
+        <div class="form-group">
+            <label for="about-you">About you</label>
+            <textarea id="about-you" name="about-you" placeholder="Hi, I am Anna..."></textarea>
+        </div>
+        <div class="form-group">
+            <label for="availability">When you are available</label>
+            <textarea id="availability" name="availability" placeholder="I am free to take 2 people for once a week meetings..."></textarea>
+        </div>
+        <div class="form-group">
+            <label for="motivation">Your motivation</label>
+            <textarea id="motivation" name="motivation" placeholder="I want to be a mentor because..."></textarea>
+        </div>
+        <div class="form-group">
+            <label for="telegram-alias">Telegram alias</label>
+            <textarea id="telegram-alias" name="telegram-alias" placeholder="@example"></textarea>
+        </div>
+        <div class="checkbox-group">
+            <div>
+                <input type="checkbox" id="individual-mentorship" name="mentorship-type">
+                <label for="individual-mentorship">Individual mentorship</label>
+            </div>
+            <div>
+                <input type="checkbox" id="group-mentorship" name="mentorship-type">
+                <label for="group-mentorship">Group mentorship</label>
+            </div>
+        </div>
+        <a href="{% url 'thank_you' %}" class="short-button">SUBMIT</a>
+    </form>
+</div>
+{% endblock body %}
