@@ -24,6 +24,7 @@ from alumni import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('main/', include("main.urls")),
     path("market/", include("market.urls")),
     path("card_request/", include("card_request.urls")),
 ]
