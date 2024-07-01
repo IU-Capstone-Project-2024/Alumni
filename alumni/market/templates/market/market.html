@@ -20,13 +20,8 @@ Innopolis University Merch
             <img src="{{ product.image.url }}" alt="{{ product.name }}">
             <div class="item-info">
                 <h3>{{ product.name }}</h3>
-<<<<<<< HEAD
-                <p class="price">{{ product.price }}</p>
-                <a href="#" class="view-button">view</a>
-=======
                 <p class="price">{{ product.price }} ₽</p>
                 <a href="{% url 'product_detail' product.id %}" class="view-button">view</a>
->>>>>>> origin/master
             </div>
         </div>
         {% endfor %}

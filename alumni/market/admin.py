@@ -1,8 +1,6 @@
 from django.contrib import admin
-
-# Register your models here.
-
 from market.models import Product
+from login.models import CustomUser
 
 @admin.register(Product)
 class ProductAdmin(admin.ModelAdmin):

@@ -226,6 +226,23 @@ h5 {
     color: #000000;
 }
 
+h7 {
+    position: absolute;
+    left: 5.93%;
+    right: 42.08%;
+    top: 15%;
+    bottom: 70.08%;
+
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 120%;
+    text-transform: uppercase;
+
+    color: #000000;
+}
+
 
 .section-activities {
     width: 512px;
@@ -237,6 +254,23 @@ h5 {
     bottom: 24.87%;
     background: #EDF1F5;
     border-radius: 30px;
+}
+
+h8 {
+    position: absolute;
+    left: 5.93%;
+    right: 42.08%;
+    top: 11.5%;
+    bottom: 70.08%;
+
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 120%;
+    text-transform: uppercase;
+
+    color: #000000;
 }
 
 .chat-button {

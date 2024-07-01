@@ -1,10 +1,11 @@
 from django import forms
-from .models import Profile
+from login.models import CustomUser
 
 class ProfileForm(forms.ModelForm):
     class Meta:
-        model = Profile
+        model = CustomUser
         fields = [
+            'user_photo',
             'graduation_year',
             'position',
             'company',
@@ -20,3 +21,13 @@ class ProfileForm(forms.ModelForm):
             'interests': forms.Textarea(attrs={'class': 'form-control'}),
             'activities': forms.Textarea(attrs={'class': 'form-control'}),
         }
+
+    user_photo = forms.ImageField(required=False)
+    graduation_year = forms.IntegerField(required=False)
+    position = forms.CharField(required=False)
+    company = forms.CharField(required=False)
+    location = forms.CharField(required=False)
+    interests = forms.CharField(widget=forms.Textarea, required=False)
+    activities = forms.CharField(widget=forms.Textarea, required=False)
+
+    

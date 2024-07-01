@@ -41,8 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'market.apps.MarketConfig',
-    'card_request.apps.CardRequestConfig'
-    'market.apps.MarketConfig',
+    'card_request.apps.CardRequestConfig',
     'login',
     'my_profile',
 ]
@@ -145,9 +144,9 @@ AUTHENTICATION_BACKENDS = [
 ]
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = ''
-EMAIL_PORT = 000
+EMAIL_HOST = 'mail.innopolis.ru'
+EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-EMAIL_HOST_USER = ''
-EMAIL_HOST_PASSWORD = ''
-EMAIL_TO = ''
+EMAIL_HOST_USER = 'g.shabanova@innopolis.university'
+EMAIL_HOST_PASSWORD = '4beidoU4('
+EMAIL_TO = 'o.grediushko@innopolis.university'

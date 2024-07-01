@@ -1,38 +1,23 @@
-<<<<<<< HEAD
-.pattern {
-    padding-top: 3%;
-}
-
-body {
-    font-family: Arial, sans-serif;
-=======
 body {
     font-family: IBM, sans-serif;
->>>>>>> origin/master
     background-color: white;
     margin: 0;
     padding: 20px;
 }
 
-<<<<<<< HEAD
-=======
 html, body {
     overflow-x: hidden;
 }
 
->>>>>>> origin/master
 .container {
     max-width: 1200px;
     margin: 0 auto;
 }
 
-<<<<<<< HEAD
-=======
 .text {
     font-family: Montserrat , sans-serif;
 }
 
->>>>>>> origin/master
 .title {
     display: flex;
     align-items: center;
@@ -60,11 +45,7 @@ html, body {
 .title h2 {
     font-size: 35px;
     margin: 0;
-<<<<<<< HEAD
-    color: #4CAF50;
-=======
     color: #40BA21;
->>>>>>> origin/master
 }
 
 .items {
@@ -109,11 +90,7 @@ html, body {
 }
 
 .item-card .item-info .price {
-<<<<<<< HEAD
-    color: green;
-=======
     color: #40BA21;
->>>>>>> origin/master
     font-weight: bold;
     margin: 10px 0;
 }
@@ -122,11 +99,7 @@ html, body {
     display: inline-block;
     padding: 10px 20px;
     margin-top: 10px;
-<<<<<<< HEAD
-    background-color: #4CAF50;
-=======
     background-color: #40BA21;
->>>>>>> origin/master
     color: white;
     border: none;
     border-radius: 5px;
@@ -138,11 +111,7 @@ html, body {
 }
 
 .view-button {
-<<<<<<< HEAD
-    background-color: #28a745;
-=======
     background-color: #40BA21;
->>>>>>> origin/master
     color: white;
     padding: 10px 20px;
     text-decoration: none;

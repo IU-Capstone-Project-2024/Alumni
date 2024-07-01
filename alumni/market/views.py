@@ -1,18 +1,9 @@
-<<<<<<< HEAD
-from django.shortcuts import render
-
-# Create your views here.
-# myapp/views.py
-from django.shortcuts import render, get_object_or_404
-from .models import Product
-=======
 # Create your views here.
 # myapp/views.py
 from django.shortcuts import render, get_object_or_404, redirect
 from django.core.mail import send_mail
 from .models import Product
 from django.conf import settings
->>>>>>> origin/master
 
 
 def product_list(request):
@@ -20,11 +11,6 @@ def product_list(request):
     return render(request, 'market/market.html', {'products': products})
 
 
-<<<<<<< HEAD
-# def product_detail(request, product_id):
-#     product = get_object_or_404(Product, id=product_id)
-#     return render(request, 'myapp/product_detail.html', {'product': product})
-=======
 def product_detail(request, product_id):
     product = get_object_or_404(Product, id=product_id)
 
@@ -63,13 +49,14 @@ def product_buy(request, product_id):
             [settings.EMAIL_HOST_USER],
             fail_silently=False,
         )
-
+        print(f"Product ID from product_buy: {product_id}")
+        request.session['product_id'] = product_id
         return redirect('checkout')
     return render(request, 'market/product_buy.html', {'product': product, 'selected_size': selected_size})
 
 
 def checkout(request):
-    product_id = request.session.get('product_id')
+    product_id = request.session.get("product_id")
+    print(f"Product ID from checkout method {product_id}")
     price = get_object_or_404(Product, id=product_id).price
     return render(request, 'market/gratitude_buy.html', context={'price': price})
->>>>>>> origin/master
