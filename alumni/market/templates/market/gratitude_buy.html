@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block style %}
+<link rel="stylesheet" href="{% static 'market/css/gratitude_buy_style.css' %}">
+{% endblock style %}
+
+{% block title %}
+Thank you!
+{% endblock title %}
+
+{% block body %}
+<div class="container">
+    <h1 class="title">Thank you for your purchase!</h1>
+    <p>Your order has been successfully placed for the amount of {{ price }} ₽, please come
+        to 319 cabinet to pick up your purchase.</p>
+    <a href="{% url 'product_list' %}" class="back-link">↩ to the InnoStore</a>
+</div>
+{% endblock body %}

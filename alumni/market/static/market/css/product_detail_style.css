@@ -1,0 +1,129 @@
+body {
+    font-family: IBM, sans-serif;
+    background-color: white;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: white;
+}
+
+.back-link {
+    color: #40BA21;
+    text-decoration: none;
+    font-size: 16px;
+    display: inline-block;
+    margin-bottom: 20px;
+    padding: 2%;
+}
+
+html, body {
+    overflow-x: hidden;
+}
+
+.back-link:hover {
+    color: #40BA21;
+    text-decoration: none;
+    font-size: 16px;
+    display: inline-block;
+    margin-bottom: 20px;
+    padding: 2%;
+    border-radius: 20px;
+    background-color: #F2F8F2;
+}
+
+.product {
+    display: flex;
+    align-items: flex-start;
+}
+
+.product-image {
+    width: 50%;
+    max-width: 400px;
+}
+
+.product-details {
+    margin-left: 20px;
+    flex: 1;
+}
+
+.product-title {
+    font-size: 24px;
+    color: #40BA21;
+    font-family: Montserrat , sans-serif;
+}
+
+.product-description {
+    font-size: 20px;
+    color: black;
+    margin-top: 10px;
+}
+
+.product-price {
+    font-size: 20px;
+    color: black;
+    margin-top: 10px;
+}
+
+.price{
+    color: #40BA21;
+    font-size: 20px;
+}
+
+.desc {
+    color: #40BA21;
+    font-size: 20px;
+}
+
+.buy-button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: white;
+    background-color: #40BA21;
+    border: none;
+    cursor: pointer;
+    border-radius: 20px;
+    text-decoration: none;
+}
+
+.buy-button:hover {
+    background-color: darkgreen;
+}
+
+.label {
+    margin-bottom: 10px;
+    color: #40BA21;
+    font-size: 20px;
+}
+
+.sizes {
+    display: flex;
+}
+
+.sizes input[type="radio"] {
+    display: none;
+}
+
+.sizes label {
+    border: 2px solid #ccc;
+    padding: 7px 15px;
+    margin-right: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    text-align: center;
+    border-radius: 4px;
+    user-select: none;
+}
+
+.sizes input[type="radio"]:checked + label {
+    border-color: #000;
+}
+
+.sizes label:hover {
+    border-color: #000;
+}
