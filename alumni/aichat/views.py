@@ -10,9 +10,6 @@ llm = Ollama(model="llama3", temperature=0.7)
 # Define the system prompt
 system_prompt = "You are a helpful assistant that provides advice and navigational help for students and Alumni. Always respond with a friendly tone and provide relevant links where applicable. Don't give long advice; respond with no more than 100 words in total."
 
-def index(request):
-    return render(request, 'aichat/index.html')
-
 @csrf_exempt
 def chat(request):
     if request.method == 'POST':
@@ -27,4 +24,3 @@ def chat(request):
                 return JsonResponse({"response": str(e)}, status=500)
         return JsonResponse({"response": "No input provided"})
     return JsonResponse({"response": "Invalid request method"}, status=405)
-
