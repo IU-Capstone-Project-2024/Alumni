@@ -27,7 +27,6 @@ def product_buy(request, product_id):
     product = get_object_or_404(Product, id=product_id)
     selected_size = request.session.get('selected_size')
     if request.method == 'POST':
-        print("Я отправился!")
         name = request.POST.get('name')
         surname = request.POST.get('surname')
         email = request.POST.get('email')
