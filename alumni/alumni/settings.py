@@ -42,7 +42,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'main.apps.MainConfig',
     'market.apps.MarketConfig',
-    'card_request.apps.CardRequestConfig'
+    'card_request.apps.CardRequestConfig',
+    'login',
+    'my_profile',
 ]
 
 MIDDLEWARE = [
@@ -132,10 +134,20 @@ STATICFILES_DIRS = [
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+
+
+AUTH_USER_MODEL = 'login.CustomUser'
+LOGIN_URL = 'login'
+LOGIN_REDIRECT_URL = 'profile'
+AUTHENTICATION_BACKENDS = [
+    'login.backends.EmailBackend',
+    'django.contrib.auth.backends.ModelBackend',
+]
+
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = ''
-EMAIL_PORT = 000
+EMAIL_HOST = 'mail.innopolis.ru'
+EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-EMAIL_HOST_USER = ''
-EMAIL_HOST_PASSWORD = ''
-EMAIL_TO = ''
+EMAIL_HOST_USER = 'g.shabanova@innopolis.university'
+EMAIL_HOST_PASSWORD = '4beidoU4('
+EMAIL_TO = 'o.grediushko@innopolis.university'

@@ -23,9 +23,11 @@ from django.conf.urls.static import static
 from alumni import settings
 
 urlpatterns = [
+    path("", include("login.urls")),
     path('admin/', admin.site.urls),
     path('main/', include("main.urls")),
     path("market/", include("market.urls")),
+    path("my_profile/", include("my_profile.urls")),
     path("card_request/", include("card_request.urls")),
 ]
 
