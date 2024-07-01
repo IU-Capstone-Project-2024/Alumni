@@ -1,4 +1,4 @@
-           <div id="chat-container">
+<div id="chat-container">
     <div id="chat-header">
         <h2 style="margin: 0;">AI chat</h2>
         <button id="close-chat-btn">←</button>
@@ -6,7 +6,7 @@
     <div id="messages"></div>
     <div id="input-container">
         <input type="text" id="user-input" placeholder="Type a message...">
-        <button id="send-btn">Send</button>
+        <button id="send-btn">SEND</button>
     </div>
 </div>
 
@@ -17,7 +17,7 @@
         position: fixed;
         bottom: 20px;
         right: 20px;
-        background: white;
+        background: #FFFFFF;
         padding: 20px;
         border-radius: 10px;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -66,11 +66,13 @@
     #send-btn {
         padding: 10px 20px;
         border: none;
-        background-color: #28a745;
-        color: white;
+        background-color: #40BA21;
+        color: #FFFFFF;
         border-radius: 5px;
         cursor: pointer;
         margin-left: 10px;
+        font-family: 'Montserrat', sans-serif;
+        font-weight: bold;
     }
     #open-chat-btn {
         position: fixed;
@@ -78,8 +80,8 @@
         right: 20px;
         width: 50px;
         height: 50px;
-        background-color: #28a745;
-        color: white;
+        background-color: #40BA21;
+        color: #FFFFFF;
         border: none;
         border-radius: 50%;
         cursor: pointer;
@@ -94,6 +96,9 @@
         justify-content: space-between;
         align-items: center;
         margin-bottom: 10px;
+    }
+    #chat-header h2 {
+        font-family: 'Montserrat', sans-serif;
     }
     #close-chat-btn {
         background: none;

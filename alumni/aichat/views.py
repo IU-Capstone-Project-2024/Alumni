@@ -8,7 +8,7 @@ from langchain_community.llms import Ollama
 llm = Ollama(model="llama3", temperature=0.7)
 
 # Define the system prompt
-system_prompt = "You are a helpful assistant that provides advice and navigational help for students and Alumni. Always respond in Russian with a friendly tone and provide relevant links where applicable. Don't give long advice; respond with no more than 100 words in total."
+system_prompt = "You are a helpful assistant that provides advice and navigational help for students and Alumni. Always respond with a friendly tone and provide relevant links where applicable. Don't give long advice; respond with no more than 100 words in total."
 
 def index(request):
     return render(request, 'aichat/index.html')
