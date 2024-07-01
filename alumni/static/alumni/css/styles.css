@@ -21,25 +21,34 @@ body {
     padding: 0 25px;
     box-sizing: border-box;
     box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.3);
-    background-color: white;
+    background-color: #FFFFFF;
 }
 
-.uni_logo img {
-    height: 100%; /* Adjust the height to fit the navbar */
-    max-height: 40px; /* Ensure the logo doesn't get too large */
-    width: auto;
-}
-
-.icons {
+.navbar a {
+    height: 100%;
     display: flex;
     align-items: center;
-}
-
-.myicon {
-    margin-left: 25px; /* Space between the icons */
-}
-
-.myicon img {
-    height: 35px; /* Adjust the size as needed */
     width: auto;
+}
+
+.navbar img {
+    height: 70%;
+    max-height: 70%;
+    width: auto;
+}
+
+.pattern-container {
+    position: relative;
+    top: 7%;
+    left: 0;
+    width: 100%;
+    height: 200px;
+    z-index: 100;
+}
+
+.pattern {
+    display: block;
+    z-index: 100;
+    width: 100vw;
+    height: auto;
 }
