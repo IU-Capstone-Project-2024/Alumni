@@ -46,7 +46,6 @@ INSTALLED_APPS = [
     'login',
     'my_profile',
     'aichat',
-    'card_request.apps.CardRequestConfig'
     'donation.apps.DonationConfig'
 ]
 
