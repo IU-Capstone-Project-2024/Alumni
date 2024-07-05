@@ -1,0 +1,35 @@
+body {
+    font-family: IBM, sans-serif;
+    font-size: 20px;
+}
+
+.container {
+    text-align: center;
+}
+
+.title {
+    color: #40BA21;
+}
+
+.back-link {
+    margin-top: 3%;
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+    display: inline-block;
+    margin-bottom: 20px;
+    padding: 1%;
+    background-color: #40BA21;
+    border-radius: 10px;
+}
+
+.back-link:hover {
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+    display: inline-block;
+    margin-bottom: 20px;
+    padding: 1%;
+    background-color: darkgreen;
+    border-radius: 10px;
+}

@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block style %}
+<link rel="stylesheet" href="{% static 'market/css/product_detail_style.css' %}">
+{% endblock style %}
+
+{% block title %}
+{{ product.name }}
+{% endblock title %}
+
+{% block body %}
+<div class="container">
+    <a href="{% url 'product_list' %}" class="back-link">↩ to the InnoStore</a>
+    <div class="product">
+        <img src="{{ product.image.url }}" alt="{{ product.name }}" class="product-image">
+        <div class="product-details">
+            <h1 class="product-title">{{ product.name }}</h1>
+            <p class="product-description">
+            <div class="desc">Description</div>
+            <br>{{ product.description }}</p>
+            {% if product.has_sizes %}
+            <form method="POST" action="{% url 'product_detail' product.id %}">
+                {% csrf_token %}
+                <div class="size-selection">
+                    <p class="label">Size</p>
+                    <div class="sizes">
+                        <input type="radio" id="size-s" name="size" value="S (46)">
+                        <label for="size-s">S (46)</label>
+                        <input type="radio" id="size-m" name="size" value="M (48)" checked>
+                        <label for="size-m">M (48)</label>
+                        <input type="radio" id="size-l" name="size" value="L (50)">
+                        <label for="size-l">L (50)</label>
+                        <input type="radio" id="size-xl" name="size" value="XL (52)">
+                        <label for="size-xl">XL (52)</label>
+                    </div>
+                </div>
+                <p class="product-price">
+                <div class="price">Price</div>
+                <br>{{ product.price }} ₽</p>
+                <input type="submit" value="Buy" class="buy-button">
+            </form>
+            {% else %}
+            <p class="product-price">
+            <div class="price">Price</div>
+            <br>{{ product.price }} ₽</p>
+            <a href="{% url 'product_buy' product.id  %}" class="buy-button">Buy</a>
+            {% endif %}
+
+        </div>
+    </div>
+</div>
+{% endblock body %}
