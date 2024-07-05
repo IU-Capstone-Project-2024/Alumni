@@ -14,10 +14,13 @@
     </head>
 
     <body>
-    {% include 'components/navbar.html' %}
-    <img class="pattern" src="{% static 'alumni/pictures/pattern.png' %}">
-    {% block body %}
-    Base Body
-    {% endblock body %}
+        {% include 'components/navbar.html' %}
+        <div class="pattern-container">
+            <img class="pattern" src="{% static 'alumni/pictures/pattern.svg' %}">
+        </div>
+        {% block body %}
+        Base Body
+        {% endblock body %}
+        {% include 'components/ai_chat.html' %}
     </body>
 </html>

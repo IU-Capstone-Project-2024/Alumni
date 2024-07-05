@@ -27,7 +27,6 @@ def product_buy(request, product_id):
     product = get_object_or_404(Product, id=product_id)
     selected_size = request.session.get('selected_size')
     if request.method == 'POST':
-        print("Я отправился!")
         name = request.POST.get('name')
         surname = request.POST.get('surname')
         email = request.POST.get('email')
@@ -49,12 +48,14 @@ def product_buy(request, product_id):
             [settings.EMAIL_HOST_USER],
             fail_silently=False,
         )
-
+        print(f"Product ID from product_buy: {product_id}")
+        request.session['product_id'] = product_id
         return redirect('checkout')
     return render(request, 'market/product_buy.html', {'product': product, 'selected_size': selected_size})
 
 
 def checkout(request):
-    product_id = request.session.get('product_id')
+    product_id = request.session.get("product_id")
+    print(f"Product ID from checkout method {product_id}")
     price = get_object_or_404(Product, id=product_id).price
     return render(request, 'market/gratitude_buy.html', context={'price': price})

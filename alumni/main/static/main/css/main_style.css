@@ -1,0 +1,196 @@
+:root {
+    --main-white: #FFFFFF;
+    --green-style-color: #40BA21FF;
+}
+
+body, html {
+    overflow-x: hidden;
+}
+
+body {
+    font-family: 'IBM Plex Sans', sans-serif;
+}
+
+h1, h2, h3 {
+    font-family: 'Montserrat', sans-serif;
+}
+
+.home {
+    --margin-top: 8vh;
+    margin-top: var(--margin-top);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: calc(100vh - var(--margin-top) - 200px);
+    background-image: url(../pictures/main_img.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    z-index: 0;
+}
+
+.home::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.15);
+    z-index: 1;
+}
+
+.home::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 20%;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 100%);
+    z-index: 2;
+}
+
+.home .content {
+    z-index: 3;
+    position: relative;
+    padding-right: 10px;
+    color: var(--main-white);
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
+}
+
+
+.home .content h1 {
+    font-size: 3.5rem;
+
+}
+
+.home .content h2 {
+    font-size: 2.25rem;
+}
+
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 5%;
+    margin-top: 7%;
+    height: calc(100% - 7%);
+}
+
+.cards .card {
+    flex: 0 1 calc(30% - 2rem);
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, .3);
+    margin: 2rem 1rem;
+    cursor: pointer;
+    border-radius: 8px;
+    background-color: var(--main-white);
+    transition: transform 0.3s ease;
+}
+
+.cards .card:hover {
+    transform: translateY(-5px);
+}
+
+.cards .card .img {
+    padding: 1rem;
+    text-align: center;
+
+}
+
+.cards .card img {
+    width: 100%;
+    height: 12rem;
+    object-fit: cover;
+    border-radius: 8px 8px 0 0;
+}
+
+.card a {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+}
+
+.card h3 {
+    font-size: 1.25rem;
+    color: black;
+    text-align: center;
+    position: relative;
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: border-bottom 0.3s ease;
+}
+
+.card:hover h3 {
+    text-decoration: underline;
+}
+
+
+@media (min-width: 2560px) {
+    .home {
+        --margin-top: 12vh;
+    }
+
+    .home .content h1 {
+        font-size: 5rem;
+    }
+
+    .home .content h2 {
+        font-size: 3rem;
+    }
+
+    .cards .card img {
+        height: 20rem;
+    }
+
+    .card h3 {
+        font-size: 2.5rem;
+    }
+}
+
+@media (max-width: 1600px) {
+    .home {
+        --margin-top: 2vh;
+    }
+
+    .home .content h1 {
+        font-size: 3rem;
+    }
+
+    .home .content h2 {
+        font-size: 1.75rem;
+    }
+}
+
+@media (max-width: 1200px) {
+    .home {
+        --margin-top: 1vh;
+    }
+
+    .home .content h1 {
+        font-size: 2.5rem;
+    }
+
+    .home .content h2 {
+        font-size: 1.5rem;
+    }
+}
+
+
+@media (max-width: 768px) {
+    .home {
+        --margin-top: 7.1vh;
+    }
+
+    .home .content h1 {
+        font-size: 2rem;
+    }
+
+    .home .content h2 {
+        font-size: 1.25rem;
+    }
+}

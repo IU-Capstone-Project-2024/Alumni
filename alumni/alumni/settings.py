@@ -40,7 +40,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'main.apps.MainConfig',
     'market.apps.MarketConfig',
+    'card_request.apps.CardRequestConfig',
+    'login',
+    'my_profile',
+    'aichat',
     'card_request.apps.CardRequestConfig'
     'donation.apps.DonationConfig'
 ]
@@ -74,6 +79,8 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'alumni.wsgi.application'
+
+
 
 
 # Database
@@ -132,9 +139,19 @@ STATICFILES_DIRS = [
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+
+
+AUTH_USER_MODEL = 'login.CustomUser'
+LOGIN_URL = 'login'
+LOGIN_REDIRECT_URL = 'profile'
+AUTHENTICATION_BACKENDS = [
+    'login.backends.EmailBackend',
+    'django.contrib.auth.backends.ModelBackend',
+]
+
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = ''
-EMAIL_PORT = 000
+EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = ''
 EMAIL_HOST_PASSWORD = ''
