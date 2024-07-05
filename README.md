@@ -27,7 +27,7 @@ The Alumni project aims to create a platform for connecting alumni between each 
 1. **Run the development server**:
 
     ```bash
-    python manage.py makemigrations
+    python manage.py makemigrations 'on'
     python manage.py migrate
     python manage.py runserver
     ```
