@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'market.apps.MarketConfig',
     'card_request.apps.CardRequestConfig'
+    'donation.apps.DonationConfig'
 ]
 
 MIDDLEWARE = [

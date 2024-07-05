@@ -1,0 +1,111 @@
+html, body {
+    overflow-x: hidden;
+}
+
+body {
+    font-family: 'IBM Plex Sans', sans-serif;
+}
+
+h1, h2, h3 {
+    font-family: 'Montserrat', sans-serif;
+}
+
+body {
+    background-color: #FFFFFF;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    background-color: #FFFFFF;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    width: 100%;
+}
+
+.back-link {
+    color: #555;
+    text-decoration: none;
+    font-weight: 500;
+    display: block;
+    margin-bottom: 1rem;
+}
+
+h1 {
+    font-size: 1.2rem;
+    color: #333;
+    line-height: 1.5;
+}
+
+h2 {
+    font-size: 1.1rem;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    color: #333;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0 0 2rem 0;
+}
+
+ul li {
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+    color: #444;
+}
+
+.donation-form,
+.thank-you-message {
+    display: none;
+    flex-direction: column;
+}
+
+.donation-form.active,
+.thank-you-message.active {
+    display: flex;
+}
+
+.donation-form input,
+.donation-form textarea {
+    margin-bottom: 1rem;
+    padding: 0.75rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.donation-form button {
+    font-family: 'Montserrat', sans-serif;
+    padding: 0.75rem;
+    background-color: #40BA21;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.donation-form button:hover {
+    background-color: #57D93F;
+}
+
+.thank-you-message {
+    align-items: center;
+    justify-content: center;
+}
+
+.thank-you-message h1 {
+    font-size: 1.5rem;
+    color: #40BA21;
+}
