@@ -82,7 +82,3 @@ To contribute:
 ## License
 
 Distributed under the MIT License. See `LICENSE` for more information.
-
----
-
-Feel free to modify this README to better suit your project's specifics and to provide additional information as needed.
