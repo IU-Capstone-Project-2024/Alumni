@@ -7,16 +7,22 @@
     font-family: 'Montserrat', sans-serif;
 }
 
-body, html {
+html, body {
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+    width: 100%;
     height: 100%;
+}
+
+body {
     background-color: #fff;
     display: flex;
     flex-direction: column;
-    align-items: center;
 }
 
 html {
-    overflow-x: hidden;
+    align-items: center;
 }
 
 .back-button {
