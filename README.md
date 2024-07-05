@@ -22,24 +22,13 @@ The Alumni project aims to create a platform for connecting alumni between each 
     cd Alumni
     ```
 
-3. **Set up a virtual environment** (optional but recommended):
-
-    ```bash
-    python -m venv venv
-    source venv/bin/activate  # On Windows use `venv\Scripts\activate`
-    ```
-
-4. **Install the dependencies**:
-
-    ```bash
-    pip install -r requirements.txt
-    ```
-
 ## Usage
 
 1. **Run the development server**:
 
     ```bash
+    python manage.py makemigrations
+    python manage.py migrate
     python manage.py runserver
     ```
 
