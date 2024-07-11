@@ -3,6 +3,8 @@ from django.urls import reverse
 from django.contrib.auth import get_user_model
 from django.core.files.uploadedfile import SimpleUploadedFile
 from login.models import CustomUser
+from django.conf import settings
+import os
 
 class UserProfileTests(TestCase):
 
@@ -44,7 +46,7 @@ class UserProfileTests(TestCase):
         # Create a test image
         test_image = SimpleUploadedFile(
             name='user_photo.png',
-            content=open('D:/Alumni\Alumni/alumni/static/alumni/pictures/user_photo.png', 'rb').read(),
+            content=open(os.path.join(settings.BASE_DIR, 'media', 'profile_pics', 'user_photo.png'), 'rb').read(),
             content_type='image/png'
         )
 

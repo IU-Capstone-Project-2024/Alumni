@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'my_profile',
     'aichat',
     'mentorship',
+    'donation.apps.DonationConfig'
 ]
 
 MIDDLEWARE = [
