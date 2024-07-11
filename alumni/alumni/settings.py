@@ -47,7 +47,8 @@ INSTALLED_APPS = [
     'my_profile',
     'aichat',
     'mentorship',
-    'donation.apps.DonationConfig'
+    'donation.apps.DonationConfig',
+    'django_select2',
 ]
 
 MIDDLEWARE = [

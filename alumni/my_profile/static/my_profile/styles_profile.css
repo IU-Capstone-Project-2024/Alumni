@@ -151,7 +151,7 @@ h4 {
     font-family: 'Montserrat';
     font-style: normal;
     font-weight: 600;
-    font-size: 14px;
+    font-size: 12px;
     line-height: 200%;
     /* or 17px */
     text-transform: uppercase;
@@ -207,7 +207,7 @@ h6 {
 
 .section-interests {
     width: 512px;
-    height: 277px;
+    height: 530px;
     position: absolute;
     left: 46.25%;
     right: 40%;
@@ -215,6 +215,8 @@ h6 {
     bottom: 56.96%;
     background: #EDF1F5;
     border-radius: 30px;
+    scroll-behavior: auto;
+    overflow: auto;
 }
 
 h5 {
@@ -227,7 +229,7 @@ h5 {
     font-family: 'Montserrat';
     font-style: normal;
     font-weight: 600;
-    font-size: 20px;
+    font-size: 15px;
     line-height: 120%;
     text-transform: uppercase;
 
@@ -235,10 +237,11 @@ h5 {
 }
 
 h7 {
+    /* interests */
     position: absolute;
     left: 5.93%;
     right: 42.08%;
-    top: 15%;
+    top: 10%;
     bottom: 70.08%;
 
     font-family: 'Montserrat';
@@ -254,11 +257,11 @@ h7 {
 
 .section-activities {
     width: 512px;
-    height: 459px;
+    height: 230px;
     position: absolute;
     left: 46.25%;
     right: 40%;
-    top: 94%;
+    top: 126.5%;
     bottom: 24.87%;
     background: #EDF1F5;
     border-radius: 30px;

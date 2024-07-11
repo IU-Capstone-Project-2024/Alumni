@@ -12,7 +12,8 @@ Mentorship Form
 {% block body %}
 <div class="content">
     <h1 class="form-header">Please, introduce yourself for the better match with your future mentees.</h1>
-    <form class="mentor-form">
+    <form class="mentor-form" method="POST">
+        {% csrf_token %}
         <div class="form-group">
             <label for="about-you">About you</label>
             <textarea id="about-you" name="about-you" placeholder="Hi, I am Anna..."></textarea>
