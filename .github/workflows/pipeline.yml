@@ -41,7 +41,6 @@ jobs:
           cd alumni
           python manage.py collectstatic --noinput
 
-      - name: Run tests for Market
+      - name: Run tests
         run: |
-            cd alumni/market/
-            python tests.py
+            python manage.py test
