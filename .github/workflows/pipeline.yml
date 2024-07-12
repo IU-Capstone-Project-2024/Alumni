@@ -2,10 +2,8 @@ name: Pipeline
 
 on:
   push:
-    tags:
-      - 'v*'    # Срабатывает при создании тега, начинающегося с "v" (например, v1.0, v2.0.1 и т.д.)
     branches:
-      - master
+      - CI/CD-pipeline
 
 jobs:
   build:
