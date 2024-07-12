@@ -48,6 +48,8 @@ INSTALLED_APPS = [
     'aichat',
     'donation',
     'events',
+    'mentorship',
+    'django_select2',
 ]
 
 MIDDLEWARE = [
