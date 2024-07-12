@@ -43,5 +43,5 @@ jobs:
 
       - name: Run tests for Market
         run: |
-            cd alumni/alumni/market/
+            cd alumni/market/
             python test.py
