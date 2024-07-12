@@ -32,14 +32,16 @@ jobs:
 
       - name: Set up database
         run: |
+          cd alumni
           python manage.py makemigrations --noinput
           python manage.py migrate --noinput
 
       - name: Collect static files
         run: |
+          cd
           python manage.py collectstatic --noinput
 
       - name: Run tests for Market
         run: |
-            cd alumni/market/
+            cd alumni/alumni/market/
             python test.py
