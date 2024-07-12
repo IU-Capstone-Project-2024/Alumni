@@ -38,7 +38,7 @@ jobs:
 
       - name: Collect static files
         run: |
-          cd
+          cd alumni
           python manage.py collectstatic --noinput
 
       - name: Run tests for Market
