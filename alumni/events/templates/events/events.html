@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+Clubs & Events
+{% endblock title %}
+
+{% block style %}
+<link rel="stylesheet" href="{% static 'events/css/events_style.css' %}">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+{% endblock style %}
+
+
+{% block body %}
+<div class="events-container">
+    <h1>Upcoming Events</h1>
+    <a href="#">Create your event!</a>
+    <form method="GET">
+        <select name="country">
+            <option value="">Country: any</option>
+            {% for country in countries %}
+            <option value="{{ country }}">{{ country }}</option>
+            {% endfor %}
+        </select>
+        <select name="city">
+            <option value="">City: any</option>
+            {% for city in cities %}
+            <option value="{{ city }}">{{ city }}</option>
+            {% endfor %}
+        </select>
+        <select name="tags" id="tags">
+            <option value="">Tags: any</option>
+            <option value="Art">Art</option>
+            <option value="Music">Music</option>
+            <option value="2024">2024</option>
+        </select>
+        <div class="apply-button-container">
+            <button class="apply-button" type="submit">Apply</button>
+        </div>
+        <div class="ai-button-container">
+            <button class="ai-button" type="button">AI Recommendation</button>
+        </div>
+    </form>
+    <div class="grid-container">
+        {% for event in events %}
+        <div class="event-card" style="--bg-image: url('{{ event.picture.url }}')">
+            <h3>{{ event.event_name }}</h3>
+            <div class="details">
+                <p>{{ event.country }}, {{ event.city }}</p>
+                <p>{{ event.date|date:"d.m.Y" }}</p>
+            </div>
+            <div class="read-more">
+                <a href="{{ event.link }}">Read more</a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock body %}

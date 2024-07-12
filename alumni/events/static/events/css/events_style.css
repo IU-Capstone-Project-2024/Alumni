@@ -1,0 +1,206 @@
+:root {
+    --black-10-percent: rgba(0, 0, 0, .1);
+    --black-8-percent: rgba(0, 0, 0, .08);
+    --green-style-color: #40BA21;
+    --green-style-light-color: #57D93F;
+    --green-style-dark-color: #2E7D17;
+    --main-white: #FFFFFF;
+    --purple: #9747FF;
+    --light-purple: #AB7AFF;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    overflow-x: hidden;
+    background-color: var(--main-white);
+}
+
+body {
+    font-family: 'IBM Plex Sans', sans-serif;
+}
+
+h1, h2, h3 {
+    font-family: 'Montserrat', sans-serif;
+}
+
+.events-container {
+    padding: 20px 10%;
+    position: relative;
+}
+
+.events-container h1 {
+    text-align: center;
+    color: var(--green-style-color);
+    font-size: 2.5rem;
+}
+
+.events-container a {
+    display: inline-block;
+    text-align: right;
+    color: var(--purple);
+    width: 100%;
+    font-size: 1.3rem;
+    margin-top: 1%;
+    font-weight: bolder;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.events-container a:hover {
+    color: var(--light-purple);
+}
+
+.events-container form {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    margin-top: 6%;
+    width: 100%;
+}
+
+.events-container form select {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    border-bottom: 3px solid #000;
+    margin-right: 5%;
+    font-weight: bold;
+    font-size: 1.05rem;
+}
+
+.events-container form select:focus {
+    outline: none;
+}
+
+.events-container form select[name="tags"] {
+    flex: 2;
+}
+
+.events-container form select:not([name="tags"]) {
+    flex: 1;
+}
+
+.events-container form button {
+    color: var(--main-white);
+    border: none;
+    padding: 10px 40px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-weight: bold;
+    font-family: "IBM Plex Sans", sans-serif;
+    font-size: 1.05rem;
+    text-align: center;
+}
+
+.events-container form button.apply-button {
+    background-color: var(--green-style-color);
+}
+
+.events-container form button.apply-button:hover {
+    background-color: var(--green-style-dark-color);
+}
+
+.events-container form .ai-button-container {
+    margin-top: 1.1%;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.events-container form button.ai-button {
+    background-color: var(--purple);
+}
+
+.events-container form button.ai-button:hover {
+    background-color: var(--light-purple);
+}
+
+/* Cards */
+
+.grid-container {
+    margin-top: 1.5rem;
+    display: grid;
+    grid-template-columns: 1.1fr 0.8fr;
+    gap: 16px;
+}
+
+.event-card {
+    background-image: var(--bg-image);
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    font-family: 'Montserrat', sans-serif;
+    padding: 1.7rem;
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+    background-color: rgba(255, 255, 255, 0.2);
+    background-blend-mode: overlay;
+    z-index: 0;
+}
+
+.event-card:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 0;
+}
+
+.event-card h3 {
+    font-size: 1.5rem;
+    margin: 0;
+    color: var(--main-white);
+    text-shadow: -3px 3px 5px rgba(0, 0, 0, 0.3);
+    z-index: 1;
+}
+
+.event-card .details {
+    font-size: 1.2rem;
+    color: var(--main-white);
+    font-weight: bold;
+    flex-grow: 1;
+    text-shadow: -3px 3px 5px rgba(0, 0, 0, 0.3);
+    z-index: 1;
+}
+
+.event-card .read-more {
+    margin-top: 10%;
+    margin-bottom: 1%;
+    text-align: left;
+    z-index: 1;
+}
+
+.event-card .read-more a {
+    display: inline;
+    text-decoration: none;
+    padding: 13px 20px;
+    color: var(--main-white);
+    font-weight: bold;
+    font-size: 1.3rem;
+    text-align: left;
+    background: black;
+    border: 2px solid black;
+    border-radius: 28px;
+    transition: color 0.3s, background-color 0.3s, border-color 0.3s;
+}
+
+.event-card .read-more a:hover {
+    color: black;
+    background-color: var(--main-white);
+    border-color: var(--main-white);
+}
+
+
+

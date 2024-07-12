@@ -40,13 +40,14 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'main.apps.MainConfig',
-    'market.apps.MarketConfig',
-    'card_request.apps.CardRequestConfig',
+    'main',
+    'market',
+    'card_request',
     'login',
     'my_profile',
     'aichat',
-    'donation.apps.DonationConfig'
+    'donation',
+    'events',
 ]
 
 MIDDLEWARE = [

@@ -30,6 +30,7 @@ urlpatterns = [
     path("my_profile/", include("my_profile.urls")),
     path("card_request/", include("card_request.urls")),
     path("donation/", include("donation.urls")),
+    path("events/", include("events.urls")),
     path('', include('aichat.urls')),
 ]
 
