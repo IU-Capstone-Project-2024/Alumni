@@ -43,6 +43,5 @@ jobs:
 
       - name: Run tests for Market
         run: |
-            ls
             cd alumni/market/
-            python test.py
+            python tests.py
