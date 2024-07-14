@@ -23,15 +23,14 @@ def add_initial_interests(apps, schema_editor):
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('login', '0001_initial'),  # Replace with your last migration file
+        ('login', '0001_initial'),
     ]
 
     operations = [
         migrations.CreateModel(
             name='Interest',
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(max_length=100)),
+                ('name', models.CharField(max_length=100, primary_key=True, serialize=False)),
             ],
         ),
         migrations.RunPython(add_initial_interests),
