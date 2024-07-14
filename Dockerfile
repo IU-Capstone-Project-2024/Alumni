@@ -11,7 +11,7 @@ COPY requirements.txt .
 RUN pip install -r requirements.txt
 
 # Copy the entire project into the container
-COPY ../alumni .
+COPY . .
 
 # Set environment variables
 ENV EMAIL_HOST=${EMAIL_HOST}
