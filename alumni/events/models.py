@@ -16,7 +16,7 @@ class Events(models.Model):
     address = models.CharField(max_length=255)
     date = models.DateTimeField()
     description = models.TextField()
-    link = models.URLField(blank=True)
+    link = models.URLField(unique=True, blank=True)
     tags = models.ManyToManyField(Interest, related_name='events')
 
     def __str__(self):
@@ -24,5 +24,10 @@ class Events(models.Model):
 
     def save(self, *args, **kwargs):
         if not self.link:
-            self.link = f'/events/{slugify(self.event_name)}'
+            slug = slugify(self.event_name)
+            counter = 1
+            while Events.objects.filter(link=f'/events/{slug}').exists():
+                slug = f'{slug}-{counter}'
+                counter += 1
+            self.link = f'/events/{slug}'
         super().save(*args, **kwargs)

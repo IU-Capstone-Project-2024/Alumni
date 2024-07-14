@@ -1,5 +1,6 @@
 from django.db import migrations
 from django.utils import timezone
+from django.utils.text import slugify
 
 def add_first_data(apps, schema_editor):
     Events = apps.get_model('events', 'Events')
@@ -98,7 +99,7 @@ def add_first_data(apps, schema_editor):
             'tags': ['Movies']
         },
         {
-            'event_name': 'Science Conference',
+            'event_name': 'Tech Conference 2024',
             'author_email': 'olivia.jones@innopolis.university',
             'author_name': 'Olivia',
             'author_surname': 'Jones',
@@ -159,7 +160,14 @@ def add_first_data(apps, schema_editor):
             tag_obj = Interest.objects.get(name=tag_name)
             tags.append(tag_obj)
 
-        event_obj = Events.objects.create(**request_data)
+        slug = slugify(request_data['event_name'])
+        counter = 1
+        while Events.objects.filter(link=f'/events/{slug}').exists():
+            slug = f'{slug}-{counter}'
+            counter += 1
+        link = f'/events/{slug}'
+
+        event_obj = Events.objects.create(**request_data, link=link)
         event_obj.tags.add(*tags)
 
 class Migration(migrations.Migration):

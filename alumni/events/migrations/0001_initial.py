@@ -26,7 +26,7 @@ class Migration(migrations.Migration):
                 ('address', models.CharField(max_length=255)),
                 ('date', models.DateTimeField()),
                 ('description', models.TextField()),
-                ('link', models.URLField(blank=True)),
+                ('link', models.URLField(unique=True, blank=True)),
                 ('tags', models.ManyToManyField('login.Interest', related_name='events')),
             ],
         ),
