@@ -20,7 +20,7 @@ ENV EMAIL_HOST_PASSWORD=${EMAIL_HOST_PASSWORD}
 ENV DJANGO_SECRET_KEY=${DJANGO_SECRET_KEY}
 
 # Collect static files
-RUN python manage.py collectstatic --noinput
+RUN python alumni/manage.py collectstatic --noinput
 
 # Make migrations and migrate the database
 RUN python manage.py makemigrations --noinput && \
