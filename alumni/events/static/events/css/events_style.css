@@ -6,7 +6,7 @@
     --green-style-dark-color: #2E7D17;
     --main-white: #FFFFFF;
     --purple: #9747FF;
-    --light-purple: #AB7AFF;
+    --dark-purple: #6B36B3;
     --cross-color: #C66;
 }
 
@@ -51,7 +51,7 @@ h1, h2, h3 {
 }
 
 .events-container a:hover {
-    color: var(--light-purple);
+    color: var(--dark-purple);
 }
 
 .events-container form {
@@ -94,16 +94,16 @@ h1, h2, h3 {
 .events-container form button {
     color: var(--main-white);
     border: none;
-    padding: 10px 40px;
     cursor: pointer;
     border-radius: 5px;
     font-weight: bold;
-    font-family: "IBM Plex Sans", sans-serif;
-    font-size: 1.05rem;
+    font-family: "Montserrat", sans-serif;
+    font-size: 1.15rem;
     text-align: center;
 }
 
 .events-container form button.apply-button {
+    padding: 13px 40px;
     background-color: var(--green-style-color);
 }
 
@@ -119,12 +119,54 @@ h1, h2, h3 {
 }
 
 .events-container form button.ai-button {
+    padding: 6px 15px;
     background-color: var(--purple);
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    flex-direction: row-reverse;
+}
+
+.events-container form .ai-button-container .button-text {
+    z-index: 1;
 }
 
 .events-container form button.ai-button:hover {
-    background-color: var(--light-purple);
+    background-color: var(--dark-purple);
 }
+
+.star-container .star {
+    transition: filter 0.3s ease;
+}
+
+.events-container form button.ai-button:hover .star-container .star {
+    filter: brightness(1.5);
+}
+
+.star-container {
+    display: flex;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    position: relative;
+    overflow: hidden;
+    margin-right: -7%;
+    z-index: 0;
+}
+
+.star {
+    width: 40px;
+    height: 40px;
+    overflow: hidden;
+    z-index: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
 
 /* Cards */
 

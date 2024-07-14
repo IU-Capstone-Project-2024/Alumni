@@ -37,7 +37,12 @@ Clubs & Events
             <button class="apply-button" type="submit" name="action" value="apply">Apply</button>
         </div>
         <div class="ai-button-container">
-            <button class="ai-button" type="submit" name="action" value="ai">AI Recommendation</button>
+            <button class="ai-button" type="submit" name="action" value="ai">
+                <span class="button-text">AI Recommendation</span>
+                <span class="star-container">
+                    <img src="{% static 'events/pictures/star.svg' %}" alt="Star" class="star">
+                </span>
+            </button>
         </div>
     </form>
     <div class="grid-container">
