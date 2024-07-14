@@ -139,6 +139,5 @@ jobs:
           host: 51.250.22.217
           username: angelika
           key: ${{ secrets.KEY }}
-          passphrase: ${{ secrets.PASSPHRASE }}
           port: 22
 
