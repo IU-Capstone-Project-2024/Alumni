@@ -13,7 +13,6 @@ jobs:
       EMAIL_HOST: ${{ secrets.EMAIL_HOST }}
       EMAIL_HOST_USER: ${{ secrets.EMAIL_HOST_USER }}
       EMAIL_HOST_PASSWORD: ${{ secrets.EMAIL_HOST_PASSWORD }}
-      DATABASE_URL: ${{ secrets.DATABASE_URL }}
       DJANGO_SECRET_KEY: ${{ secrets.DJANGO_SECRET_KEY }}
 
     steps:
@@ -140,5 +139,6 @@ jobs:
           host: 51.250.22.217
           username: admin
           key: ${{ secrets.KEY }}
+          passphrase: ${{ secrets.PASSPHRASE }}
           port: 22
 
