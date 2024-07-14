@@ -3,6 +3,7 @@ from .models import Events
 from login.models import Interest
 from django.db.models import Count
 from django.db.models import Q
+from .services import get_recommended_events
 
 # Create your views here.
 
@@ -38,5 +39,12 @@ def filter_events(request):
             q_objects |= Q(tags__name=tag)
 
         events = events.filter(q_objects).distinct()
+
+    return render(request, 'events/events.html', {'events': events})
+
+def ai_recommendation(request):
+    events = Events.objects.all()
+    ids = get_recommended_events() # add arguments if needed
+    events = events.filter(id__in=ids)
 
     return render(request, 'events/events.html', {'events': events})

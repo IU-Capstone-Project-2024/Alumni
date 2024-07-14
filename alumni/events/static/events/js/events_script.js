@@ -206,6 +206,19 @@ function aiRecommendation(event) {
 
         multiselectDiv.refresh();
     }
+
+    fetch('ai-recommendation/', {
+        method: 'GET',
+    })
+    .then(response => response.text())
+    .then(data => {
+        const parser = new DOMParser();
+        const doc = parser.parseFromString(data, 'text/html');
+        document.querySelector('.grid-container').innerHTML = doc.querySelector('.grid-container').innerHTML;
+    })
+    .catch(error => {
+        console.error('Error:', error);
+    });
 }
 
 function handleSubmit(event) {

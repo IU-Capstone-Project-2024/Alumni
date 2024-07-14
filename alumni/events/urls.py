@@ -6,4 +6,5 @@ from . import views
 urlpatterns = [
     path("", views.page, name="events"),
     path("filter_events/", views.filter_events, name="filter_events"),
+    path("ai-recommendation/", views.ai_recommendation, name="ai_recommendation"),
 ]
