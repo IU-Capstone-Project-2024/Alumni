@@ -2,7 +2,7 @@
 FROM python:3.10
 
 # Set the working directory in the container
-WORKDIR /alumni
+WORKDIR /app
 
 # Copy the requirements file into the container
 COPY requirements.txt .
@@ -11,7 +11,7 @@ COPY requirements.txt .
 RUN pip install -r requirements.txt
 
 # Copy the entire project into the container
-COPY ../../alumni .
+COPY ../alumni .
 
 # Set environment variables
 ENV EMAIL_HOST=${EMAIL_HOST}
