@@ -23,8 +23,8 @@ ENV DJANGO_SECRET_KEY=${DJANGO_SECRET_KEY}
 RUN python alumni/manage.py collectstatic --noinput
 
 # Make migrations and migrate the database
-RUN python manage.py makemigrations --noinput && \
-    python manage.py migrate --noinput
+RUN python alumni/manage.py makemigrations --noinput && \
+    python alumni/manage.py migrate --noinput
 
 # Expose the port the app runs on
 EXPOSE 8000
