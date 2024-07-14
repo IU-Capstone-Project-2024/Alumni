@@ -137,7 +137,7 @@ jobs:
         uses: appleboy/ssh-action@master
         with:
           host: 51.250.22.217
-          username: admin
+          username: angelika
           key: ${{ secrets.KEY }}
           passphrase: ${{ secrets.PASSPHRASE }}
           port: 22
