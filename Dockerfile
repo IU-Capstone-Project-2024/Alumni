@@ -5,7 +5,7 @@ FROM python:3.10
 WORKDIR /app
 
 # Copy the requirements file into the container
-COPY requirements.txt .
+COPY requirements.txt /app/
 
 # Install the dependencies
 RUN pip install -r requirements.txt
