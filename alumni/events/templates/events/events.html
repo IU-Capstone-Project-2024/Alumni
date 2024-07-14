@@ -15,30 +15,29 @@ Clubs & Events
 <div class="events-container">
     <h1>Upcoming Events</h1>
     <a href="#">Create your event!</a>
-    <form method="GET">
-        <select name="country">
+    <form method="GET" id="filter-form">
+        <select name="country" id="country">
             <option value="">Country: any</option>
             {% for country in countries %}
             <option value="{{ country }}">{{ country }}</option>
             {% endfor %}
         </select>
-        <select name="city">
+        <select name="city" id="city">
             <option value="">City: any</option>
             {% for city in cities %}
             <option value="{{ city }}">{{ city }}</option>
             {% endfor %}
         </select>
-        <select name="tags" id="tags">
-            <option value="">Tags: any</option>
-            <option value="Art">Art</option>
-            <option value="Music">Music</option>
-            <option value="2024">2024</option>
+        <select name="tags" id="tags" multiple multiselect-search="true">
+            {% for tag in tags %}
+            <option value="{{ tag }}">{{ tag }}</option>
+            {% endfor %}
         </select>
         <div class="apply-button-container">
-            <button class="apply-button" type="submit">Apply</button>
+            <button class="apply-button" type="submit" name="action" value="apply">Apply</button>
         </div>
         <div class="ai-button-container">
-            <button class="ai-button" type="button">AI Recommendation</button>
+            <button class="ai-button" type="submit" name="action" value="ai">AI Recommendation</button>
         </div>
     </form>
     <div class="grid-container">
@@ -56,4 +55,5 @@ Clubs & Events
         {% endfor %}
     </div>
 </div>
+<script src="{% static 'events/js/events_script.js' %}"></script>
 {% endblock body %}

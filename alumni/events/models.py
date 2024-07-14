@@ -1,6 +1,6 @@
 from django.db import models
 from django.utils.text import slugify
-
+from login.models import Interest
 # Create your models here.
 
 class Events(models.Model):
@@ -17,7 +17,7 @@ class Events(models.Model):
     date = models.DateTimeField()
     description = models.TextField()
     link = models.URLField(blank=True)
-    tags = models.JSONField()
+    tags = models.ManyToManyField(Interest, related_name='events')
 
     def __str__(self):
         return f"{self.id}: {self.event_name}"

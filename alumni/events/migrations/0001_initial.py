@@ -2,19 +2,19 @@
 
 from django.db import migrations, models
 
-
 class Migration(migrations.Migration):
 
     initial = True
 
     dependencies = [
+        ('login', '0002_add_initial_interests'),
     ]
 
     operations = [
         migrations.CreateModel(
             name='Events',
             fields=[
-                ('id', models.AutoField(primary_key=True, serialize=False)),
+                ('id', models.BigAutoField(primary_key=True, serialize=False)),
                 ('event_name', models.CharField(max_length=200)),
                 ('author_email', models.EmailField(max_length=254)),
                 ('author_name', models.CharField(max_length=100)),
@@ -27,7 +27,7 @@ class Migration(migrations.Migration):
                 ('date', models.DateTimeField()),
                 ('description', models.TextField()),
                 ('link', models.URLField(blank=True)),
-                ('tags', models.JSONField()),
+                ('tags', models.ManyToManyField('login.Interest', related_name='events')),
             ],
         ),
     ]
