@@ -136,8 +136,9 @@ jobs:
       - name: Connect to VM via SSH
         uses: appleboy/ssh-action@master
         with:
-          host: 51.250.22.217
+          host: 130.193.43.164
           username: angelika
           key: ${{ secrets.KEY }}
+          passphrase: ${{ secrets.PASSPHRASE }}
           port: 22
 
