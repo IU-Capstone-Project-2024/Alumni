@@ -26,6 +26,12 @@ RUN python alumni/manage.py collectstatic --noinput
 RUN python alumni/manage.py makemigrations --noinput && \
     python alumni/manage.py migrate --noinput
 
+# Copy the create_superuser script
+COPY create_superuser.py /app/
+
+# Create superuser
+RUN python create_superuser.py
+
 # Expose the port the app runs on
 EXPOSE 8000
 
