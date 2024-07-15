@@ -23,6 +23,7 @@ class Migration(migrations.Migration):
                 ('first_name', models.CharField(blank=True, max_length=30)),
                 ('last_name', models.CharField(blank=True, max_length=30)),
                 ('user_photo', models.ImageField(blank=True, upload_to='profile_pics/')),
+                ('alias', models.CharField(blank=True, max_length=50)),
                 ('graduation_year', models.IntegerField(blank=True, null=True)),
                 ('position', models.CharField(blank=True, max_length=50)),
                 ('company', models.CharField(blank=True, max_length=50)),
@@ -38,4 +39,5 @@ class Migration(migrations.Migration):
                 'abstract': False,
             },
         ),
+        
     ]

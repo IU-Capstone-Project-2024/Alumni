@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from login.models import CustomUser
 from .forms import ProfileForm
-from .services import get_user_location
+from .services import get_all_users
 
 @login_required
 def profile_view(request):
@@ -19,6 +19,7 @@ def edit_profile(request):
     user_profile = request.user
     if request.method == 'POST':
         form = ProfileForm(request.POST, request.FILES, instance=request.user)
+        print(get_all_users())
         if form.is_valid():
             user_profile.save()
             form.save()
