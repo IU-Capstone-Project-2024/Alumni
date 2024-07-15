@@ -16,7 +16,7 @@ function toggleCheckInOut() {
     if (!button.classList.contains('check-out')) {
         button.classList.add('check-out');
         button.textContent = 'Check out';
-        showSuccessAlert('You checked in successfully!');
+        showSuccessAlert('You checked in successfully! Event link added to your profile');
         localStorage.setItem('checkInOutState', 'checked-out');
     } else {
         button.classList.remove('check-out');
@@ -36,7 +36,7 @@ function showSuccessAlert(successMessage) {
 
         setTimeout(function () {
             document.body.removeChild(successAlert);
-        }, 2000);
+        }, 3000);
     }, 0);
 }
 
