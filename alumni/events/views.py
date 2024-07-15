@@ -5,6 +5,8 @@ from django.db.models import Count
 from django.db.models import Q
 from .services import get_recommended_events
 from my_profile.services import get_user_interests
+from django.http import JsonResponse
+import json
 
 # Create your views here.
 
@@ -48,7 +50,7 @@ def ai_recommendation(request):
     if request.user.is_authenticated:
         user_email = request.user.email
         interests = get_user_interests(user_email)
-        ids = get_recommended_events(interests)
+        ids = get_recommended_events(events, interests)
         events = events.filter(id__in=ids)
 
     return render(request, 'events/events.html', {'events': events})
@@ -56,3 +58,24 @@ def ai_recommendation(request):
 def event_detail(request, event_link):
     event = get_object_or_404(Events, link=f"/events/{event_link}")
     return render(request, 'events/event_detail.html', {'event': event})
+
+def create_activity(request, action):
+    if request.method == 'POST':
+        data = json.loads(request.body)
+        event_link = data.get('event_link')
+        event = get_object_or_404(Events, link=event_link)
+        event_url = request.build_absolute_uri(event_link)
+
+        new_activity = f"{event.event_name} ({event_url})"
+
+        # TBD
+
+        return JsonResponse({'success': True})
+    else:
+        return JsonResponse({'success': False})
+
+def add_activity(request):
+    return create_activity(request, action='add')
+
+def delete_activity(request):
+    return create_activity(request, action='delete')

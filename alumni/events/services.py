@@ -1,9 +1,9 @@
-
-def get_recommended_events(interests):
+def get_recommended_events(events, interests):
     """
     Selects events suitable for the user based on their interests.
 
     Args:
+    events (QuerySet): QuerySet of Events objects to filter from.
     interests (list of str): List of interests of the user.
 
     Returns:
