@@ -54,30 +54,6 @@ jobs:
       DJANGO_SECRET_KEY: ${{ secrets.DJANGO_SECRET_KEY }}
 
     steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v4
-
-      - name: Set up Python
-        uses: actions/setup-python@v3
-        with:
-          python-version: 3.10.13
-
-      - name: Install Dependencies
-        run: |
-          python -m pip install --upgrade pip
-          pip install -r requirements.txt
-
-      - name: Set up database
-        run: |
-          cd alumni
-          python manage.py makemigrations --noinput
-          python manage.py migrate --noinput
-
-      - name: Collect static files
-        run: |
-          cd alumni
-          python manage.py collectstatic --noinput
-
       - name: Run tests
         run: |
           cd alumni
@@ -95,30 +71,6 @@ jobs:
       DJANGO_SECRET_KEY: ${{ secrets.DJANGO_SECRET_KEY }}
 
     steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v4
-
-      - name: Set up Python
-        uses: actions/setup-python@v3
-        with:
-          python-version: 3.10.13
-
-      - name: Install Dependencies
-        run: |
-          python -m pip install --upgrade pip
-          pip install -r requirements.txt
-
-      - name: Set up database
-        run: |
-          cd alumni
-          python manage.py makemigrations --noinput
-          python manage.py migrate --noinput
-
-      - name: Collect static files
-        run: |
-          cd alumni
-          python manage.py collectstatic --noinput
-
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
 
@@ -148,5 +100,3 @@ jobs:
             sudo echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
             sudo docker pull "${{ secrets.DOCKER_USERNAME }}"/my-django-app:latest
             sudo docker run -d --name alumni -p 80:8000 "${{ secrets.DOCKER_USERNAME }}"/my-django-app:latest
-
-
