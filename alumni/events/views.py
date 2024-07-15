@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from .models import Events
 from login.models import Interest
 from django.db.models import Count
@@ -48,3 +48,7 @@ def ai_recommendation(request):
     events = events.filter(id__in=ids)
 
     return render(request, 'events/events.html', {'events': events})
+
+def event_detail(request, event_link):
+    event = get_object_or_404(Events, link=f"/events/{event_link}")
+    return render(request, 'events/event_detail.html', {'event': event})

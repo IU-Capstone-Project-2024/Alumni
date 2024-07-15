@@ -1,0 +1,104 @@
+:root {
+    --black-10-percent: rgba(0, 0, 0, .1);
+    --black-8-percent: rgba(0, 0, 0, .08);
+    --green-style-color: #40BA21;
+    --green-style-light-color: #57D93F;
+    --green-style-dark-color: #2E7D17;
+    --green-style-light-light-light-color: #E5F5E0;
+    --main-white: #FFFFFF;
+    --purple: #9747FF;
+    --dark-purple: #6B36B3;
+    --cross-color: #C66;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    overflow-x: hidden;
+    background-color: var(--main-white);
+}
+
+body {
+    font-family: 'IBM Plex Sans', sans-serif;
+}
+
+h1, h2, h3 {
+    font-family: 'Montserrat', sans-serif;
+}
+
+.event-details {
+    display: flex;
+    padding: 2rem 10% 5rem;
+    position: relative;
+    flex-wrap: wrap;
+}
+
+.event-image {
+    flex: 0 0 50%;
+    height: 40%;
+    position: relative;
+    margin-right: 5%;
+}
+
+.event-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.event-main-info {
+    display: flex;
+    flex-direction: column;
+    align-self: stretch;
+    align-items: flex-start;
+}
+
+.event-main-info h2 {
+    font-size: 1.8rem;
+    color: var(--purple);
+    margin-top: 0;
+}
+
+.event-details .tags span {
+    background-color: rgba(64, 186, 33, 0.5);
+    padding: 3px 10px;
+    border-radius: 4px;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    display: inline-block;
+    color: black;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.event-details .tags {
+    margin-bottom: 0.5rem;
+}
+
+.event-details .tags span:last-child {
+    margin-right: 0;
+}
+
+.event-main-info p {
+    font-weight: 600;
+    font-size: 1.2rem;
+    margin-bottom: 0;
+    margin-top: 0.5rem;
+}
+
+.description {
+    flex: 1 1 100%;
+    margin-top: 2rem;
+    border: none;
+    background-color: var(--green-style-light-light-light-color);
+    border-radius: 8px;
+    padding: 1rem;
+}
+
+.description p {
+    font-size: 1.2rem;
+    font-weight: 600;
+}
