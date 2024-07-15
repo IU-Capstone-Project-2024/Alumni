@@ -2,8 +2,10 @@ name: Pipeline
 
 on:
   push:
+    tags:
+      - 'v*'
     branches:
-      - CI/CD-pipeline
+      - master
 
 jobs:
   build:
