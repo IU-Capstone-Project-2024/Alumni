@@ -142,6 +142,12 @@ jobs:
           passphrase: ${{ secrets.PASSPHRASE }}
           port: 22
           script: |
+            if [ "$(docker ps -q)" ]; then
+              sudo docker kill $(docker ps -q) &> /dev/null
+            fi
+            if [ "$(docker ps -a -q)" ]; then
+              sudo docker rm $(docker ps -a -q) &> /dev/null
+            fi
             sudo echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
             sudo docker pull "${{ secrets.DOCKER_USERNAME }}"/my-django-app:latest
             sudo docker run -d --name alumni -p 80:80 "${{ secrets.DOCKER_USERNAME }}"/my-django-app:latest
