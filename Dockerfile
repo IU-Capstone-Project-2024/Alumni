@@ -36,7 +36,7 @@ RUN python alumni/manage.py makemigrations --noinput && \
     python alumni/manage.py migrate --noinput
 
 # Create superuser
-RUN python manage.py createsuperuser --noinput --email $DJANGO_SUPERUSER_EMAIL --first_name $DJANGO_SUPERUSER_FIRST_NAME --last_name $DJANGO_SUPERUSER_LAST_NAME
+RUN python alumni/manage.py createsuperuser --noinput --email $DJANGO_SUPERUSER_EMAIL --first_name $DJANGO_SUPERUSER_FIRST_NAME --last_name $DJANGO_SUPERUSER_LAST_NAME
 
 # Expose the port the app runs on
 EXPOSE 8000
