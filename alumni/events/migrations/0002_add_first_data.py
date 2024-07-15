@@ -148,7 +148,7 @@ def add_first_data(apps, schema_editor):
             'address': '808 Rome Street',
             'date': timezone.now() + timezone.timedelta(days=70),
             'description': 'Festival celebrating food and wine.',
-            'tags': ['Alcohol', 'Social networking']
+            'tags': ['Bar', 'Social networking']
         },
     ]
 

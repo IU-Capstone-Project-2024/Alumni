@@ -10,7 +10,7 @@ def add_initial_interests(apps, schema_editor):
         'Machine Learning', 'Artificial Intelligence', 'Cybersecurity', 'Cloud Computing', 
         'DevOps', 'Mobile Development', 'Game Development', 'UX/UI Design', 'Web Development', 
         'Open Source', 'Startups', 'IT-business', 'Networking', 'Psychology', 'Soft Skills', 
-        'Career Development', 'Hackatons', 'Master Classes', 'Alcohol', 'Music', 'Movies', 
+        'Career Development', 'Hackatons', 'Master Classes', 'Bar', 'Music', 'Movies',
         'Chess', 'Sports', 'Cybersports', 'Volunteering', 'Travel', 'Photography', 
         'Video Editing', 'Podcasts', 'Literature', 'Board Games', 'Cooking', 
         'Self-development', 'Personal growth', 'Health and fitness', 'Ecology', 'Social networking', 
