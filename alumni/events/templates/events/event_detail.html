@@ -16,7 +16,10 @@
         <img src="{{ event.picture.url }}" alt="{{ event.event_name }}">
     </div>
     <div class="event-main-info">
-        <h2>{{ event.event_name }}</h2>
+        <div class="button-container">
+            <h2>{{ event.event_name }}</h2>
+            <button class="check-in-button">Check in</button>
+        </div>
         <div class="tags">
             {% for tag in event.tags.all %}
                 <span>{{ tag.name }}</span>
@@ -32,4 +35,5 @@
         <p>Description: {{ event.description }}</p>
     </div>
 </div>
+<script src="{% static 'events/js/event_detail.js' %}"></script>
 {% endblock body %}

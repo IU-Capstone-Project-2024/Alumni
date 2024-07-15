@@ -9,6 +9,8 @@
     --purple: #9747FF;
     --dark-purple: #6B36B3;
     --cross-color: #C66;
+    --red-color-button: #DC3545;
+    --dark-red-color-button: #AC2D38;
 }
 
 * {
@@ -33,6 +35,7 @@ h1, h2, h3 {
     padding: 2rem 10% 5rem;
     position: relative;
     flex-wrap: wrap;
+    margin-top: 0;
 }
 
 .event-image {
@@ -60,6 +63,46 @@ h1, h2, h3 {
     font-size: 1.8rem;
     color: var(--purple);
     margin-top: 0;
+    word-break: break-all;
+}
+
+.check-in-button {
+    background-color: var(--green-style-color);
+    color: var(--main-white);
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    font-size: 1rem;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 0;
+    display: inline-block;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.check-in-button.check-out {
+    background-color: var(--red-color-button);
+}
+
+.check-in-button:hover {
+    background-color: var(--green-style-dark-color);
+}
+
+.check-in-button.check-out:hover {
+    background-color: var(--dark-red-color-button);
+}
+
+.button-container {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.button-container h2 {
+    margin-right: 1rem;
 }
 
 .event-details .tags span {
@@ -87,6 +130,7 @@ h1, h2, h3 {
     font-size: 1.2rem;
     margin-bottom: 0;
     margin-top: 0.5rem;
+    word-break: break-all;
 }
 
 .description {
@@ -101,4 +145,22 @@ h1, h2, h3 {
 .description p {
     font-size: 1.2rem;
     font-weight: 600;
+    word-break: break-all;
+}
+
+.success-alert {
+    background-color: var(--green-style-color);
+    font-family: "IBM Plex Sans", sans-serif;
+    color: var(--main-white);
+    padding: 20px;
+    text-align: center;
+    font-size: 1.25rem;
+    position: fixed;
+    top: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 300px;
+    z-index: 1001;
+    border-radius: 10px;
+    opacity: 0.85;
 }
