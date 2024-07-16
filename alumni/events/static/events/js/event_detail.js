@@ -1,22 +1,22 @@
 function initializeButtonState() {
-    var button = document.querySelector('.check-in-button');
-    var currentState = localStorage.getItem('checkInOutState');
+    var button = document.querySelector('.sign-up-button');
+    var currentState = localStorage.getItem('signUpCancelState');
 
-    if (currentState === 'checked-in') {
-        button.classList.remove('check-out');
-        button.textContent = 'Check in';
+    if (currentState === 'signed-up') {
+        button.classList.remove('cancel');
+        button.textContent = 'Sign up';
     } else {
-        button.classList.add('check-out');
-        button.textContent = 'Check out';
+        button.classList.add('cancel');
+        button.textContent = 'Cancel';
     }
 }
 
-function handleCheckInOut(event) {
+function handleSignUpCancel(event) {
     event.preventDefault();
-    var button = document.querySelector('.check-in-button');
+    var button = document.querySelector('.sign-up-button');
     var eventLink = document.querySelector('input[name="activity"]').value;
 
-    if (!button.classList.contains('check-out')) {
+    if (!button.classList.contains('cancel')) {
         fetch('/events/add-activity/', {
             method: 'POST',
             headers: {
@@ -28,10 +28,10 @@ function handleCheckInOut(event) {
         .then(response => response.json())
         .then(data => {
             if (data.success) {
-                button.classList.add('check-out');
-                button.textContent = 'Check out';
-                showSuccessAlert('You checked in successfully! Event link added to your profile');
-                localStorage.setItem('checkInOutState', 'checked-out');
+                button.classList.add('cancel');
+                button.textContent = 'Cancel';
+                showSuccessAlert('You signed up successfully! Event link added to your profile');
+                localStorage.setItem('signUpCancelState', 'canceled');
             } else {
                 console.error('Failed to add event link');
             }
@@ -49,10 +49,10 @@ function handleCheckInOut(event) {
         .then(response => response.json())
         .then(data => {
             if (data.success) {
-                button.classList.remove('check-out');
-                button.textContent = 'Check in';
-                showSuccessAlert('You checked out successfully!');
-                localStorage.setItem('checkInOutState', 'checked-in');
+                button.classList.remove('cancel');
+                button.textContent = 'Sign up';
+                showSuccessAlert('Event registration canceled successfully!');
+                localStorage.setItem('signUpCancelState', 'signed-up');
             } else {
                 console.error('Failed to remove event link');
             }
@@ -62,6 +62,10 @@ function handleCheckInOut(event) {
 }
 
 function showSuccessAlert(successMessage) {
+    const existingSuccessAlert = document.querySelector('.success-alert');
+    if (existingSuccessAlert) {
+        document.body.removeChild(existingSuccessAlert);
+    }
     const successAlert = document.createElement('div');
     successAlert.className = 'success-alert';
     successAlert.textContent = successMessage;
@@ -77,7 +81,6 @@ function showSuccessAlert(successMessage) {
 
 initializeButtonState();
 window.addEventListener('load', () => {
-    const form = document.getElementById("check-in-out");
-    form.addEventListener("submit", handleCheckInOut);
+    const form = document.getElementById("sign-up-cancel-form");
+    form.addEventListener("submit", handleSignUpCancel);
 });
-

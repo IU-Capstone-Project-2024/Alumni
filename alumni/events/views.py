@@ -1,10 +1,10 @@
 from django.shortcuts import render, get_object_or_404
 from .models import Events
-from login.models import Interest
+from login.models import Interest, CustomUser
 from django.db.models import Count
 from django.db.models import Q
 from .services import get_recommended_events
-from my_profile.services import get_user_interests
+from my_profile.services import get_user_interests, add_user_activity, delete_user_activity
 from django.http import JsonResponse
 import json
 
@@ -47,9 +47,9 @@ def filter_events(request):
 
 def ai_recommendation(request):
     events = Events.objects.all()
-    if request.user.is_authenticated:
-        user_email = request.user.email
-        interests = get_user_interests(user_email)
+    user = request.user
+    if user.is_authenticated:
+        interests = get_user_interests(user.email)
         ids = get_recommended_events(events, interests)
         events = events.filter(id__in=ids)
 
@@ -66,13 +66,17 @@ def create_activity(request, action):
         event = get_object_or_404(Events, link=event_link)
         event_url = request.build_absolute_uri(event_link)
 
-        new_activity = f"{event.event_name} ({event_url})"
+        user = request.user
+        activity = f"<a href='{event_url}'>{event.event_name}</a><br>"
 
-        # TBD
-
-        return JsonResponse({'success': True})
+        if user.is_authenticated:
+            user_email = user.email
+            add_user_activity(user_email, activity) if action == 'add' else delete_user_activity(user_email, activity)
+            return JsonResponse({'success': True})
+        else:
+            return JsonResponse({'success': False, 'error': 'User is not authenticated.'})
     else:
-        return JsonResponse({'success': False})
+        return JsonResponse({'success': False, 'error': 'Invalid request method.'})
 
 def add_activity(request):
     return create_activity(request, action='add')

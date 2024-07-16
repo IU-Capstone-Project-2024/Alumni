@@ -32,7 +32,7 @@ h1, h2, h3 {
 
 .event-details {
     display: flex;
-    padding: 2rem 10% 5rem;
+    padding: 3.5rem 10% 6rem;
     position: relative;
     flex-wrap: wrap;
     margin-top: 0;
@@ -66,7 +66,7 @@ h1, h2, h3 {
     word-break: break-all;
 }
 
-.check-in-button {
+.sign-up-button {
     background-color: var(--green-style-color);
     color: var(--main-white);
     font-family: 'Montserrat', sans-serif;
@@ -82,15 +82,15 @@ h1, h2, h3 {
     text-align: center;
 }
 
-.check-in-button.check-out {
+.sign-up-button.cancel {
     background-color: var(--red-color-button);
 }
 
-.check-in-button:hover {
+.sign-up-button:hover {
     background-color: var(--green-style-dark-color);
 }
 
-.check-in-button.check-out:hover {
+.sign-up-button.cancel:hover {
     background-color: var(--dark-red-color-button);
 }
 
