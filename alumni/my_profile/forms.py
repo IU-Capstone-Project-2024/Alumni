@@ -18,7 +18,6 @@ class ProfileForm(forms.ModelForm):
             'company',
             'location',
             'interests',
-            'activities'
         ]
         widgets = {
             'alias': forms.TextInput(attrs={'class': 'form-control'}),
@@ -27,7 +26,6 @@ class ProfileForm(forms.ModelForm):
             'company': forms.TextInput(attrs={'class': 'form-control'}),
             'location': forms.TextInput(attrs={'class': 'form-control'}),
             'interests': Select2TagWidget(attrs={'class': 'form-control'}),
-            'activities': forms.Textarea(attrs={'class': 'form-control'}),
         }
 
     user_photo = forms.ImageField(required=False)

@@ -27,7 +27,6 @@ html {
 
 .back-button {
     position: absolute;
- 
     left: 9.72%;
     right: 87.72%;
     top: 16.4%;
@@ -267,11 +266,15 @@ h7 {
     border-radius: 30px;
 }
 
+.section-activities h5 {
+    top: 13%;
+}
+
 h8 {
     position: absolute;
     left: 5.93%;
-    right: 42.08%;
-    top: 11.5%;
+    right: 5.93%;
+    top: 23%;
     bottom: 70.08%;
 
     font-family: 'Montserrat';
@@ -282,4 +285,14 @@ h8 {
     text-transform: uppercase;
 
     color: #000000;
+}
+
+h8 a {
+    color: #40BA21;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+h8 a:hover {
+    text-decoration: none;
 }

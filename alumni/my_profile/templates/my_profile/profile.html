@@ -28,15 +28,15 @@ My profile
                 <div class="profile-details">
                     <div class="profile-info">
                         <h4>
-                            ALIAS: {{user_profile.alias}}
+                            ALIAS: {{user_profile.alias}} <br>
                             
-                            GRADUATION YEAR: {{ user_profile.graduation_year }}
+                            GRADUATION YEAR: {{ user_profile.graduation_year }} <br>
 
-                            POSITION: {{ user_profile.position }}
+                            POSITION: {{ user_profile.position }} <br>
 
-                            COMPANY: {{ user_profile.company }}
+                            COMPANY: {{ user_profile.company }} <br>
                             
-                            LOCATION: {{ user_profile.location }}
+                            LOCATION: {{ user_profile.location }} <br>
                             
                         
                         </h4>
@@ -56,7 +56,7 @@ My profile
                 </div>
                 <div class="section-activities">
                     <h5>CURRENT ACTIVITIES</h5>
-                    <h8>{% if user_profile.activities %}{{user_profile.activities}}{% else %}{% endif %}</h8>
+                    <h8>{% if user_profile.activities %}{{user_profile.activities | safe}}{% else %}{% endif %}</h8>
                 </div>
             </div>
         </div>

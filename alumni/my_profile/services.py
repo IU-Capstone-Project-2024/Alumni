@@ -37,3 +37,22 @@ def get_user_alias(email):
     if profile:
         return profile.alias
     return None
+
+def add_user_activity(email, activity):
+    """
+    Add a new activity to the user profile
+    """
+    profile = get_user_profile(email)
+    if profile:
+        profile.activities = (profile.activities or '') + activity
+        profile.save()
+
+def delete_user_activity(email, activity):
+    """
+    Delete an activity from the user profile
+    """
+    profile = get_user_profile(email)
+    if profile:
+        if profile.activities and activity in profile.activities:
+            profile.activities = profile.activities.replace(activity, '')
+            profile.save()

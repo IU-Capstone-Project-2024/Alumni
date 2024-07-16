@@ -69,8 +69,8 @@ Edit profile
                         
                     </div>
                     <div class="section-activities">
-                        <h5><label for="id_activities">Current Activities:</label>
-                            </h5>
+                        <h5>CURRENT ACTIVITIES</h5>
+                        <h8>{% if user_profile.activities %}{{user_profile.activities | safe}}{% else %}{% endif %}</h8>
                     </div>
                 </div>
             </div>
