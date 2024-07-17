@@ -12,7 +12,8 @@ class EventsViewsTestCase(TestCase):
     def setUp(self):
         self.client = Client()
         self.user = CustomUser.objects.create_user(email='testuser@example.com', password='password')
-        self.interest = Interest.objects.create(name='Interest')
+        self.interest1 = Interest.objects.create(name='Interest1')
+        self.interest2 = Interest.objects.create(name='Interest2')
         self.event1 = Events.objects.create(
             event_name='Event 1',
             author_email='author1@example.com',
@@ -25,7 +26,7 @@ class EventsViewsTestCase(TestCase):
             date=timezone.now(),
             description='Description for event 1'
         )
-        self.event1.tags.add(self.interest)
+        self.event1.tags.add(self.interest1)
         self.event2 = Events.objects.create(
             event_name='Event 2',
             author_email='author2@example.com',
@@ -38,7 +39,7 @@ class EventsViewsTestCase(TestCase):
             date=timezone.now(),
             description='Description for event 2'
         )
-        self.event2.tags.add(self.interest)
+        self.event2.tags.add(self.interest2)
 
     def test_page(self):
         response = self.client.get(reverse('events'))
@@ -62,12 +63,11 @@ class EventsViewsTestCase(TestCase):
         self.assertEqual(len(response.context['events']), 1)
         self.assertEqual(response.context['events'][0], self.event1)
 
-        response = self.client.get(reverse('filter_events'), {'tags': [self.interest.pk]})
+        response = self.client.get(reverse('filter_events'), {'tags': [self.interest1.pk]})
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'events/events.html')
-        self.assertEqual(len(response.context['events']), 2)
+        self.assertEqual(len(response.context['events']), 1)
         self.assertIn(self.event1, response.context['events'])
-        self.assertIn(self.event2, response.context['events'])
 
     def test_ai_recommendation(self):
         self.client.login(email='testuser@example.com', password='password')
