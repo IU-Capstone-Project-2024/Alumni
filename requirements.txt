@@ -38,3 +38,4 @@ urllib3==2.2.2
 yarl==1.9.4
 python-dotenv==1.0.1
 nltk==3.8.1
+sentence-transformers==3.0.1
