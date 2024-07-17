@@ -22,28 +22,16 @@ model = SentenceTransformer("sentence-transformers/distilbert-base-nli-stsb-mean
 
 # Define webpages and their descriptions
 webpages = {
-    "card_request/": "Card request. Pass. Enter. Arrive. Go. University. Innopolis.",
-    "market/": "Shop. Inno Shop. Merch. Merchandize. Gift.",
-    "my_profile/": "Log in. Profile. Authorization. User.",
+    "Card request": "Card request. Card. Pass. Enter. Arrive. Go. University. Innopolis.",
+    "Hello! How can I help you?": "Hi. Hello. Good afternoon. Good evening. Good night. Hey.",
+    "Market": "Shop. Inno Shop. Merch. Merchandize. Gift.",
+    "My profile": "Log in. Profile. Authorization. User.",
     "Mentorship": "Students. Teacher. Mentors. Mentorship. Support",
-    "Authors": "Authors.",
-    "donation/": "Donation. Money. Gifting. Gift. Supporting.",
+    "Donation": "Donation. Money. Gifting. Gift. Supporting.",
     "Events": "Meetups. Conferences. Events. Clubs",
-    "main/": "Homepage. Home. Menu.",
+    "Homepage": "Homepage. Home. Menu.",
     "Map": "Map. Alumnus. Cities. World"
 }
-
-# Define Django URL patterns
-urlpatterns = [
-    path("", include("login.urls")),
-    path('admin/', admin.site.urls),  # Add admin URL pattern
-    path('main/', include("main.urls")),
-    path("market/", include("market.urls")),
-    path("my_profile/", include("my_profile.urls")),
-    path("card_request/", include("card_request.urls")),
-    path("donation/", include("donation.urls")),
-    path('', include('aichat.urls')),
-]
 
 # Convert webpages dictionary into lists for further processing
 webpage_keys = list(webpages.keys())
@@ -65,17 +53,35 @@ def contains_inappropriate_content(text):
             return True
     return False
 
+# Function to create hyperlinks
+def create_hyperlinks(text):
+    hyperlinks = {
+        'Card request': '<a href="http://130.193.43.164/card_request/">Card request</a>',
+        'Market': '<a href="http://130.193.43.164/market/">Market</a>',
+        'My profile': '<a href="http://130.193.43.164/my_profile/profile/">My profile</a>',
+        'Mentorship': '<a href="http://130.193.43.164/mentorship/">Mentorship</a>',
+        'Donation': '<a href="http://130.193.43.164/donation/">Donation</a>',
+        'Events': '<a href="https://130.193.43.164/events/">Events</a>',
+        'Homepage': '<a href="https://130.193.43.164/main/">Homepage</a>',
+        'Map': '<a href="https://130.193.43.164/map/">Map</a>'
+    }
+    
+    for key, link in hyperlinks.items():
+        text = text.replace(key, link)
+    return text
+
 # CSRF exempted view for handling chat requests
 @csrf_exempt
 def chat(request):
     if request.method == 'POST':
         data = json.loads(request.body)
         message = data.get('message', '')
-
+        options = ["Card request", "Market", "My profile", "Mentorship", "Donation", "Events", "Homepage", "Map"]
+        options.sort()
         search_query = preprocess_text(message)
 
         if contains_inappropriate_content(search_query):
-            response = "I didn't understand you. Please revise your query."
+            response = "I didn't understand you. We have options:\n" + "\n".join(options)
         else:
             search_query_embedding = model.encode([search_query], convert_to_tensor=True)[0]
             cosine_similarities = util.pytorch_cos_sim(search_query_embedding, webpage_embeddings)[0].cpu().numpy()
@@ -83,9 +89,12 @@ def chat(request):
             most_similar_webpage = webpage_keys[most_similar_idx]
             score_text = cosine_similarities[most_similar_idx]
 
-            if score_text < 0.1:
-                response = "I didn't understand you. Please revise your query."
+            # Print the score to the console
+            print(f"Query: {search_query}, Most Similar Webpage: {most_similar_webpage}, Score: {score_text}")
+
+            if score_text < 0.2:
+                response = "I didn't understand you. We have options:\n" + "\n".join(options)
             else:
-                response = most_similar_webpage.replace('_', ' ')
+                response = create_hyperlinks(most_similar_webpage.replace('_', ' '))
 
         return JsonResponse({'response': response})

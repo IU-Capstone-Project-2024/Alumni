@@ -110,75 +110,76 @@
 
 <script>
     document.getElementById('open-chat-btn').addEventListener('click', function() {
-        document.getElementById('chat-container').style.display = 'flex';
-        document.getElementById('open-chat-btn').style.display = 'none';
-        loadMessages();
+    document.getElementById('chat-container').style.display = 'flex';
+    document.getElementById('open-chat-btn').style.display = 'none';
+    loadMessages();
     });
 
     document.getElementById('close-chat-btn').addEventListener('click', function() {
-        document.getElementById('chat-container').style.display = 'none';
-        document.getElementById('open-chat-btn').style.display = 'flex';
+    document.getElementById('chat-container').style.display = 'none';
+    document.getElementById('open-chat-btn').style.display = 'flex';
     });
 
     document.getElementById('send-btn').addEventListener('click', sendMessage);
     document.getElementById('user-input').addEventListener('keypress', function(e) {
-        if (e.key === 'Enter') {
-            sendMessage();
-        }
+    if (e.key === 'Enter') {
+        sendMessage();
+    }
     });
 
     function sendMessage() {
-        const userInput = document.getElementById('user-input').value;
-        if (userInput.trim() === '') return;
+    const userInput = document.getElementById('user-input').value;
+    if (userInput.trim() === '') return;
 
-        addMessage('user', userInput);
-        document.getElementById('user-input').value = '';
+    addMessage('user', userInput);
+    document.getElementById('user-input').value = '';
 
-        fetch('/chat/', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({ message: userInput })
-        })
-        .then(response => response.json())
-        .then(data => {
-            addMessage('ai', data.response);
-        })
-        .catch(error => {
-            console.error('Error:', error);
-        });
+    fetch('/chat/', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ message: userInput })
+    })
+    .then(response => response.json())
+    .then(data => {
+        addMessage('ai', data.response);
+    })
+    .catch(error => {
+        console.error('Error:', error);
+    });
     }
 
     function addMessage(sender, message) {
-        const messagesDiv = document.getElementById('messages');
-        const messageDiv = document.createElement('div');
-        messageDiv.classList.add('message', sender);
-        messageDiv.textContent = message;
-        messagesDiv.appendChild(messageDiv);
-        messagesDiv.scrollTop = messagesDiv.scrollHeight;
+    const messagesDiv = document.getElementById('messages');
+    const messageDiv = document.createElement('div');
+    messageDiv.classList.add('message', sender);
+    messageDiv.innerHTML = message.replace(/\n/g, '<br>'); // Convert newlines to <br> tags
+    messagesDiv.appendChild(messageDiv);
+    messagesDiv.scrollTop = messagesDiv.scrollHeight;
 
-        saveMessages();
-    }
+    saveMessages();
+}
 
     function saveMessages() {
-        const messagesDiv = document.getElementById('messages');
-        const messages = [];
-        messagesDiv.querySelectorAll('.message').forEach(messageDiv => {
-            messages.push({
-                sender: messageDiv.classList.contains('user') ? 'user' : 'ai',
-                text: messageDiv.textContent
-            });
+    const messagesDiv = document.getElementById('messages');
+    const messages = [];
+    messagesDiv.querySelectorAll('.message').forEach(messageDiv => {
+        messages.push({
+            sender: messageDiv.classList.contains('user') ? 'user' : 'ai',
+            text: messageDiv.innerHTML
         });
-        localStorage.setItem('chatMessages', JSON.stringify(messages));
+    });
+    localStorage.setItem('chatMessages', JSON.stringify(messages));
     }
 
     function loadMessages() {
-        const messagesDiv = document.getElementById('messages');
-        const messages = JSON.parse(localStorage.getItem('chatMessages')) || [];
-        messagesDiv.innerHTML = '';
-        messages.forEach(message => {
-            addMessage(message.sender, message.text);
-        });
+    const messagesDiv = document.getElementById('messages');
+    const messages = JSON.parse(localStorage.getItem('chatMessages')) || [];
+    messagesDiv.innerHTML = '';
+    messages.forEach(message => {
+        addMessage(message.sender, message.text);
+    });
     }
+
 </script>
