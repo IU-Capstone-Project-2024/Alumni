@@ -103,7 +103,7 @@ jobs:
 
       - name: Clean up Docker
         if: always()
-        run: docker system prune -af
+        run: sudo docker system prune -af
 
   deploy:
     runs-on: self-hosted
