@@ -9,7 +9,7 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
 
     env:
       EMAIL_HOST: ${{ secrets.EMAIL_HOST }}
@@ -52,7 +52,7 @@ jobs:
           sudo rm -rf /usr/local/lib/android
 
   test:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
 
     needs: build
 
@@ -102,7 +102,7 @@ jobs:
           sudo rm -rf /usr/local/lib/android
 
   deploy:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
 
     needs: test
 
@@ -166,5 +166,12 @@ jobs:
             sudo echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
             sudo docker pull "${{ secrets.DOCKER_USERNAME }}"/my-django-app:latest
             sudo docker run -d --name alumni -p 80:8000 "${{ secrets.DOCKER_USERNAME }}"/my-django-app:latest
-
-
+      
+      - name: Clean up space
+        run: |
+          sudo apt-get clean
+          docker system prune -a -f
+          docker builder prune -f
+          sudo rm -rf /usr/share/dotnet
+          sudo rm -rf /opt/ghc
+          sudo rm -rf /usr/local/lib/android
