@@ -28,15 +28,15 @@ My profile
                 <div class="profile-details">
                     <div class="profile-info">
                         <h4>
-                            ALIAS: {{user_profile.alias}}
+                            ALIAS: {{user_profile.alias}}<br>
                             
-                            GRADUATION YEAR: {{ user_profile.graduation_year }}
+                            GRADUATION YEAR: {{ user_profile.graduation_year }}<br>
 
-                            POSITION: {{ user_profile.position }}
+                            POSITION: {{ user_profile.position }}<br>
 
-                            COMPANY: {{ user_profile.company }}
+                            COMPANY: {{ user_profile.company }}<br>
                             
-                            LOCATION: {{ user_profile.location }}
+                            LOCATION: {{ user_profile.location }}<br>
                             
                         
                         </h4>
@@ -71,4 +71,5 @@ My profile
     {% else %}
         <p>You are not logged in. Please <a href="{% url 'login' %}">login</a></p>
     {% endif %}
+<div style="height: 200px;"></div>
 {% endblock body %}

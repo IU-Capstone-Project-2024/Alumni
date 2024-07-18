@@ -42,14 +42,19 @@ body {
     margin: 0; /* Remove default margin */
 }
 
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50vh;
+}
+
 .text_paragraph {
-    display: block;
-    margin: auto;
     font-family: "IBM Plex Sans", sans-serif;
     font-weight: 300;
-    font-size: 25px;
+    font-size: 27px;
     color: #333333;
-    margin: 20px 0; /* Adjust spacing as needed */
+    text-align: center;
 }
 
 .button {
@@ -65,10 +70,12 @@ body {
     display: block;
     text-decoration: none;
     margin: auto;
-    width: 55%; 
+    width: 50%; 
     text-align: center;
     padding: 15px 40px;
     margin-top: 20px; /* Space above the button */
+    margin-bottom: 100px;
+    transition: background-color #57D93F;
 }
 
 @media (max-width: 1000px) {

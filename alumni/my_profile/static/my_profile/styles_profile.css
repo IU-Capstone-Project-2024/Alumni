@@ -25,29 +25,11 @@ html {
     align-items: center;
 }
 
-.back-button {
-    position: absolute;
- 
-    left: 9.72%;
-    right: 87.72%;
-    top: 16.4%;
-    bottom: 81.69%;
-}
-
-.back-button a {
-    text-decoration: none;
-    color: #40BA21;
-    display: flex;
-    align-items: center;
-}
-
-.back-button img {
-    width: 24px;
-}
-
 .container {
+    width: 100%;
     max-width: 1200px;
     background-color: #fff;
+    margin: 20px auto;
     margin-top: 800px;
     padding: 20px;
     border-radius: 10px;
@@ -74,14 +56,15 @@ h2 {
     text-align: center;
     text-transform: uppercase;
     color: #40BA21;
+    
 }
 
 .profile {
     display: flex;
-    width: 100%;
     justify-content: space-between;
+    width: 100%;
+    flex-wrap: wrap;
 }
-
 
 .profile-left {
     width: 280px;
@@ -123,8 +106,6 @@ h2 {
     line-height: 120%;
     /* or 30px */
     text-align: center;
-    text-transform: uppercase;
-
     color: #000000;
 }
 
@@ -148,13 +129,11 @@ h4 {
     top: 10%;
     bottom: 70.08%;
 
-    font-family: 'Montserrat';
-    font-style: normal;
+    font-family: "IBM Plex Sans", sans-serif;
     font-weight: 600;
     font-size: 12px;
     line-height: 200%;
     /* or 17px */
-    text-transform: uppercase;
 
     color: #000000;
 
@@ -168,6 +147,7 @@ h4 {
 }
 
 .edit-profile-button {
+    
     width: 280px;
     height: 83px;
     position: absolute;
@@ -180,6 +160,7 @@ h4 {
     background-color: #EDF1F5;
     cursor: pointer;
     align-items: center;
+    transition: background-color #57D93F;
 }
 
 h6 {
@@ -200,16 +181,17 @@ h6 {
 }
 
 .profile-right {
-    flex: 2;
+    flex: 1;
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
 
 .section-interests {
     width: 512px;
     height: 530px;
     position: absolute;
-    left: 46.25%;
+    left: 50%;
     right: 40%;
     top: 50.87%;
     bottom: 56.96%;
@@ -217,6 +199,13 @@ h6 {
     border-radius: 30px;
     scroll-behavior: auto;
     overflow: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.section-interests ul {
+    padding-left: 20px;
 }
 
 h5 {
@@ -236,6 +225,11 @@ h5 {
     color: #000000;
 }
 
+ul {
+    list-style-type: disc;
+    padding-left: 20px;
+}
+
 h7 {
     /* interests */
     position: absolute;
@@ -244,27 +238,36 @@ h7 {
     top: 10%;
     bottom: 70.08%;
 
-    font-family: 'Montserrat';
-    font-style: normal;
-    font-weight: 600;
+    font-family: "IBM Plex Sans", sans-serif;
+    font-weight: 400;
     font-size: 14px;
     line-height: 120%;
-    text-transform: uppercase;
 
+    color: #000000;
+}
+
+p {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
     color: #000000;
 }
 
 
 .section-activities {
+   
     width: 512px;
     height: 230px;
     position: absolute;
-    left: 46.25%;
+    left: 50%;
     right: 40%;
     top: 126.5%;
     bottom: 24.87%;
     background: #EDF1F5;
     border-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 h8 {
@@ -280,6 +283,36 @@ h8 {
     font-size: 14px;
     line-height: 120%;
     text-transform: uppercase;
-
     color: #000000;
+}
+
+@media (max-width: 1024px) {
+    .container {
+        padding: 10px;
+        flex-direction: column;
+    }
+
+    .profile {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .profile-left, .profile-right {
+        width: 90%;
+        margin: 10px 0;
+    }
+    
+    .profile-right {
+        flex: 1;
+    }
+
+    .edit-profile-button {
+        width: 90%;
+    }
+}
+
+@media (max-width: 768px) {
+    .profile-left, .profile-right {
+        width: 100%;
+    }
 }
