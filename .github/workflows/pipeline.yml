@@ -108,7 +108,7 @@ jobs:
   deploy:
     runs-on: self-hosted
 
-    needs: test
+    needs: build
 
     env:
       EMAIL_HOST: ${{ secrets.EMAIL_HOST }}
