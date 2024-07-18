@@ -2,6 +2,7 @@ from django.shortcuts import render, get_object_or_404
 from .models import Events
 from login.models import Interest, CustomUser
 from django.db.models import Count
+from django.db.models import Case, When
 from django.db.models import Q
 from .services import get_recommended_events
 from my_profile.services import get_user_interests, add_user_activity, delete_user_activity
@@ -50,9 +51,14 @@ def ai_recommendation(request):
     user = request.user
     if user.is_authenticated:
         interests = get_user_interests(user.email)
-        ids = get_recommended_events(events, interests)
-        events = events.filter(id__in=ids)
+        events_list = []
+        for event in events:
+            event_tags = list(event.tags.values_list('name', flat=True))
+            events_list.append([event.id, event_tags])
 
+        ids = get_recommended_events(events_list, interests)
+        preserved_order = Case(*[When(id=id, then=pos) for pos, id in enumerate(ids)])
+        events = events.filter(id__in=ids).order_by(preserved_order)
     return render(request, 'events/events.html', {'events': events})
 
 def event_detail(request, event_link):
