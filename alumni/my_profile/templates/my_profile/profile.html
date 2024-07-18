@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block style %}
+<link rel="stylesheet" href="{% static 'my_profile/styles_profile.css' %}">
+{% endblock style %}
+
+{% block title %}
+My profile
+{% endblock title %}
+
+{% block body %}
+{% if user.is_authenticated %}
+    <div class="container">
+        <h2>MY PROFILE</h2>
+        <div class="profile">
+            <div class="profile-left">
+                <div class="profile-picture">
+                    <img src="{% if user_profile.user_photo %}{{ user_profile.user_photo.url }}{% else %}{% static 'my_profile/user_photo.jpg' %}{% endif %}" alt="Profile Picture" style="width: 201px;
+                    height: 194px;
+                    position: absolute;
+                    top: 0.1%;
+                    background-color: #D9D9D9;
+                    border-radius: 50%;
+                ">
+                </div>
+                <h3>{{ request.user.first_name }} {{ request.user.last_name }}</h3>
+                <div class="profile-details">
+                    <div class="profile-info">
+                        <h4>
+                            ALIAS: {{user_profile.alias}}<br>
+                            
+                            GRADUATION YEAR: {{ user_profile.graduation_year }}<br>
+
+                            POSITION: {{ user_profile.position }}<br>
+
+                            COMPANY: {{ user_profile.company }}<br>
+                            
+                            LOCATION: {{ user_profile.location }}<br>
+                            
+                        
+                        </h4>
+                    </div>
+                </div>
+            </div>
+            <div class="profile-right">
+                <div class="section-interests">
+                    <h5>INTERESTS</h5>
+                    <h7><ul>
+                        {% for interest in user_profile.interests.all %}
+                            <li>{{ interest.name }}</li>
+                        {% empty %}
+                            <li>No interests selected.</li>
+                        {% endfor %}
+                    </ul></h7>
+                </div>
+                <div class="section-activities">
+                    <h5>CURRENT ACTIVITIES</h5>
+                    <h8>{% if user_profile.activities %}{{user_profile.activities}}{% else %}{% endif %}</h8>
+                </div>
+            </div>
+        </div>
+        <div class="edit-profile-container">
+            <button class="edit-profile-button">
+                <a href="{% url 'edit_profile' %}">
+                    <h6>Edit profile</h6>
+                </a>
+            </button>
+        </div>
+    </div>
+    {% else %}
+        <p>You are not logged in. Please <a href="{% url 'login' %}">login</a></p>
+    {% endif %}
+<div style="height: 200px;"></div>
+{% endblock body %}

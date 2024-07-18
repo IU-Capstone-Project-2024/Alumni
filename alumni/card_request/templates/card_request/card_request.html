@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block style %}
+<link rel="stylesheet" href="{% static 'card_request/css/card_request.css' %}">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+{% endblock style %}
+
+{% block title %}
+Request for a University Visit
+{% endblock title %}
+
+
+{% block body %}
+<div class="content">
+    <h1>Request for a University Visit</h1>
+    <form class="form-container" id="card-request-form" novalidate>
+        {% csrf_token %}
+        <div class="form-control-container">
+            <input type="text" id="name" name="name" placeholder="Name *">
+        </div>
+        <div class="form-control-container">
+            <input type="text" id="surname" name="surname" placeholder="Surname *">
+        </div>
+        <div class="form-control-container">
+            <input type="email" id="email" name="email" placeholder="E-mail (@innopolis.university domain) *">
+        </div>
+        <div class="form-control-container">
+            <input type="text" id="telegram" name="telegram" placeholder="Telegram alias (with @) *">
+        </div>
+        <div class="form-control-container">
+            <input type="text" id="visit-date" name="visit-date" placeholder="Visit date *">
+        </div>
+        <div>
+            <button type="button" onclick="validateForm()"><strong>SEND</strong></button>
+        </div>
+    </form>
+</div>
+<script src="{% static 'card_request/js/card_request.js' %}"></script>
+{% endblock body %}

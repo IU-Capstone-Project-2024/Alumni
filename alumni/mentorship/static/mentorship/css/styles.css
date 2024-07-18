@@ -1,0 +1,95 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    position: relative;
+}
+
+.content-row {
+    margin-top: 5%;
+    display: flex;
+    align-content: space-between;
+    padding: 20px;
+    margin-bottom: 300px;
+}
+
+.pupils_image {
+    width: 44%; /* Adjust width as needed */
+    /* height: 22%; */
+    /* max-height: 25%; */
+    border-radius: 6px;
+    margin: auto;
+    margin-right: 5%; /* Space between the image and text */
+    margin-left: 3%;
+}
+
+.mentorship-content {
+    display: flex;
+    flex-direction: column;
+    letter-spacing: 0%;
+    width: 50%; /* Adjust width as needed */
+}
+
+.top_header {
+    font-family: "Montserrat", sans-serif;
+    font-size: 60px;
+    font-weight: 600;
+    color: #40BA21;
+    text-align: center;
+    margin: 0; /* Remove default margin */
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50vh;
+}
+
+.text_paragraph {
+    font-family: "IBM Plex Sans", sans-serif;
+    font-weight: 300;
+    font-size: 27px;
+    color: #333333;
+    text-align: center;
+}
+
+.button {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 25px;
+    font-weight: 700;
+    padding: 10px 20px;
+    background-color: #40BA21;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    display: block;
+    text-decoration: none;
+    margin: auto;
+    width: 50%; 
+    text-align: center;
+    padding: 15px 40px;
+    margin-top: 20px; /* Space above the button */
+    margin-bottom: 100px;
+    transition: background-color #57D93F;
+}
+
+@media (max-width: 1000px) {
+    .content-row {
+        flex-direction: column; /* Stack elements vertically on smaller screens */
+    }
+    
+    .pupils_image,
+    .mentorship-content {
+        width: 100%; /* Full width for both elements on smaller screens */
+        margin: 0; /* Remove margins for a more streamlined layout */
+    }
+    
+    .pupils_image {
+        margin-bottom: 20px; /* Add some space between the image and content */
+    }
+}

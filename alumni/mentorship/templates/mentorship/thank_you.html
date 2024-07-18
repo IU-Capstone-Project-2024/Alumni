@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+Mentorship Welcome
+{% endblock title %}
+
+{% block style %}
+<link rel="stylesheet" href="{% static 'mentorship/css/styles.css' %}">
+{% endblock style %}
+
+{% block body %}
+<div class="container">
+    <p class="text_paragraph"><br>
+        Thank you for joining our mentorship program, we hope it will be a great experience for you and your mentees.<br>
+        We will reach out to you soon.</p>
+</div>
+<a href="{% url 'intro' %}" class="button">BACK TO MENTORSHIP PAGE</a>
+<div style="height: 200px;"></div>
+{% endblock body %}

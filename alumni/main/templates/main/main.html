@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block style %}
+<link rel="stylesheet" href="{% static 'main/css/main_style.css' %}">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+{% endblock style %}
+
+{% block title %}
+Main page
+{% endblock title %}
+
+
+{% block body %}
+<section class="home" id="home">
+   <div class="content">
+      <h1>Welcome to Alumni website!</h1>
+      <h2>1218 graduates</h2>
+   </div>
+</section>
+<section class="cards">
+   <div class="card">
+      <a href="{% url 'visit' %}">
+         <img src="{% static 'main/pictures/visit.jpg' %}" alt="Request for a Visit">
+         <h3>Request for a University Visit</h3>
+      </a>
+   </div>
+   <div class="card">
+      <a href="{% url 'intro' %}">
+         <img src="{% static 'main/pictures/mentors.jpg' %}" alt="Mentors">
+         <h3>Mentors</h3>
+      </a>
+   </div>
+   <div class="card">
+      <a href="{% url 'product_list' %}">
+         <img src="{% static 'main/pictures/inno-shop.jpg' %}" alt="Inno Shop">
+         <h3>Inno Shop</h3>
+      </a>
+   </div>
+   <div class="card">
+      <a href="#">
+         <img src="{% static 'main/pictures/clubs-events.jpg' %}" alt="Clubs & Events">
+         <h3>Clubs & Events</h3>
+      </a>
+   </div>
+   <div class="card">
+      <a href="{% url 'donation' %}">
+         <img src="{% static 'main/pictures/donation.jpg' %}" alt="Donation">
+         <h3>Donation</h3>
+      </a>
+   </div>
+   <div class="card">
+      <a href="#">
+         <img src="{% static 'main/pictures/world-map.jpg' %}" alt="World Map">
+         <h3>World Map</h3>
+      </a>
+   </div>
+</section>
+{% endblock body %}

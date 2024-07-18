@@ -1,0 +1,107 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: "IBM Plex Sans", sans-serif;
+}
+
+body, html {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f0f0f0;
+}
+
+.container {
+    display: flex;
+    height: 90vh;
+    width: 90vw;
+    background-color: #ffffff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.image-section {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.image-section img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.login-section {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    border-radius: 10px;
+    
+    padding: 20px;
+    text-align: center;
+}
+
+.logo img {
+    width: 300px;
+    margin-bottom: 60px;
+}
+
+h2 {
+    font-family: "IBM Plex Sans", sans-serif;
+    margin-bottom: 20px;
+    font-size: 25px;
+    color: #333333;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80%;
+    max-width: 300px;
+    align-items: center;
+}
+
+input[type="email"],
+input[type="password"] {
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #cccccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+button {
+    font-family: "IBM Plex Sans", sans-serif;
+    padding: 10px;
+    background-color: #40BA21;
+    border: none;
+    border-radius: 5px;
+    color: #ffffff;
+    font-size: 16px;
+    cursor: pointer;
+    width: 72.5%
+}
+
+button:hover {
+    background-color: #40BA21;
+}
+
+@media (min-width: 768px) {
+    .image-section {
+        flex-direction: row;
+    }
+    
+    .login-section, .image-section {
+        width: 45%;
+    }
+}

@@ -1,0 +1,87 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block style %}
+<link rel="stylesheet" href="{% static 'my_profile/styles_profile.css' %}">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" rel="stylesheet" />
+{% endblock style %}
+
+<style>
+    .scrollable-interests {
+        max-height: 200px; 
+        overflow-y: auto;
+        margin-top: 50px;
+    }
+</style>
+
+{% block title %}
+Edit profile
+{% endblock title %}
+
+{% block body %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
+    <div class="container">
+        <h2>Edit Profile</h2>
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="profile">
+                <div class="profile-left">
+                    <div class="profile-picture">
+                        <label for="id_user_photo" style="display: block; margin-bottom: 5px;"></label>
+                        <img src="{% if request.user.user_photo %}{{ request.user.user_photo.url }}{% else %}{% static 'my_profile/user_photo.jpg' %}{% endif %}" alt="Profile Picture" style="width: 201px;
+                    height: 194px;
+                    position: absolute;
+                    top: 0.1%;
+                    background-color: #D9D9D9;
+                    border-radius: 50%;
+                ">
+                        <input type="file" name="user_photo" id="id_user_photo" value="{{form.user_photo.value}}" style="margin-top: 190px; width: 100%; padding: 5px;">
+                    </div>
+                    <h3>{{ request.user.first_name }} {{ request.user.last_name }}</h3>
+                    <div class="profile-details">
+                        <div class="profile-info">
+                            <h4>
+                                <label for="id_alias">Alias:</label>
+                                <input type="text" name="alias" id="id_alias" value="{{ form.alias.value }}" style="width: 170%; height: 25px; border-radius: 7px;">
+                                
+                                <label for="id_graduation_year">Graduation Year:</label>
+                                <input type="number" name="graduation_year" id="id_graduation_year" value="{{ form.graduation_year.value }}" style="width: 170%; height: 25px; border-radius: 7px;">
+                                
+                                <label for="id_position">Position:</label>
+                                <input type="text" name="position" id="id_position" value="{{ form.position.value }}" style="width: 170%; height: 25px; border-radius: 7px;">
+
+                                <label for="id_company">Company:</label>
+                                <input type="text" name="company" id="id_company" value="{{ form.company.value }}" style="width: 170%; height: 25px; border-radius: 7px;">
+                                
+                                <label for="id_location">Location:</label>
+                                <input type="text" name="location" id="id_location" value="{{ form.location.value }}" style="width: 170%; height: 25px; border-radius: 7px;"></h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="profile-right">
+                    <div class="section-interests">
+                        <h5><label for="id_interests">Interests:</label></h5>
+                            <h7><div class="scrollable-interests">
+                                {{ form.interests }}
+                            </div></h7>
+                            
+                        
+                    </div>
+                    <div class="section-activities">
+                        <h5><label for="id_activities">Current Activities:</label>
+                            </h5>
+                    </div>
+                </div>
+            </div>
+            <div class="edit-profile-container">
+                <button class="edit-profile-button">
+                    <a href="{% url 'profile' %}">
+                        <h6>Save changes</h6>
+                    </a>
+                </button>
+            </div>
+            </form>
+        </div>
+<div style="height: 200px;"></div>
+{% endblock body %}

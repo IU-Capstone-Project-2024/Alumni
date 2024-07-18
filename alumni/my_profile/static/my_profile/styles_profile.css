@@ -1,0 +1,318 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+}
+
+html, body {
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+}
+
+html {
+    align-items: center;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    background-color: #fff;
+    margin: 20px auto;
+    margin-top: 800px;
+    padding: 20px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h2 {
+    /* My profile */
+
+    position: absolute;
+    left: 40.35%;
+    right: 40%;
+    top: 40.4%;
+    bottom: 76.12%;
+
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 120%;
+    /* or 36px */
+    text-align: center;
+    text-transform: uppercase;
+    color: #40BA21;
+    
+}
+
+.profile {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    flex-wrap: wrap;
+}
+
+.profile-left {
+    width: 280px;
+    height: 351px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    left: 26.25%;
+    right: 59.31%;
+    top: 50.87%;
+    bottom: 31.89%;
+    background-color: #EDF1F5;
+    border-radius: 30px;
+}
+
+.profile-picture {
+    width: 201px;
+    height: 194px;
+    position: absolute;
+    top: 5%;
+    background-color: #D9D9D9;
+    border-radius: 50%;
+}
+
+.profile-left h3 {
+    /* Name surname */
+    width: 201px;
+    height: 48px;
+    position: absolute;
+    top: 70.47%;
+    bottom: 55.38%;
+    margin-bottom: 20px;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 25px;
+    line-height: 120%;
+    /* or 30px */
+    text-align: center;
+    color: #000000;
+}
+
+.profile-info {
+    width: 280px;
+    height: 288px;
+    position: absolute;
+    left: 0.3%;
+    top: 106.5%;
+    bottom: 5%;
+    background-color: #EDF1F5;
+    border-radius: 30px;
+}
+
+h4 {
+   /* Graduation year: position: company: location: */
+
+    position: absolute;
+    left: 10.93%;
+    right: 42.08%;
+    top: 10%;
+    bottom: 70.08%;
+
+    font-family: "IBM Plex Sans", sans-serif;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 200%;
+    /* or 17px */
+
+    color: #000000;
+
+    transform: rotate(-0.33deg);
+
+}
+
+.edit-profile-container {
+    margin-top: 1px; /* Space between profile details and button */
+    align-items: center;
+}
+
+.edit-profile-button {
+    
+    width: 280px;
+    height: 83px;
+    position: absolute;
+    left: 26.25%;
+    right: 59.31%;
+    top: 146.5%;
+    bottom: 10%;
+    border: none;
+    border-radius: 30px;
+    background-color: #EDF1F5;
+    cursor: pointer;
+    align-items: center;
+    transition: background-color #57D93F;
+}
+
+h6 {
+    /* Edit profile */
+
+    position: absolute;
+    top: 37.47%;
+    bottom: 60%;
+    left: 27.5%;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 30px;
+    text-align: center;
+    color: #000000;
+
+}
+
+.profile-right {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.section-interests {
+    width: 512px;
+    height: 530px;
+    position: absolute;
+    left: 50%;
+    right: 40%;
+    top: 50.87%;
+    bottom: 56.96%;
+    background: #EDF1F5;
+    border-radius: 30px;
+    scroll-behavior: auto;
+    overflow: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.section-interests ul {
+    padding-left: 20px;
+}
+
+h5 {
+    position: absolute;
+    left: 5.93%;
+    right: 42.08%;
+    top: 5.77%;
+    bottom: 70.08%;
+
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 120%;
+    text-transform: uppercase;
+
+    color: #000000;
+}
+
+ul {
+    list-style-type: disc;
+    padding-left: 20px;
+}
+
+h7 {
+    /* interests */
+    position: absolute;
+    left: 5.93%;
+    right: 42.08%;
+    top: 10%;
+    bottom: 70.08%;
+
+    font-family: "IBM Plex Sans", sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 120%;
+
+    color: #000000;
+}
+
+p {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    color: #000000;
+}
+
+
+.section-activities {
+   
+    width: 512px;
+    height: 230px;
+    position: absolute;
+    left: 50%;
+    right: 40%;
+    top: 126.5%;
+    bottom: 24.87%;
+    background: #EDF1F5;
+    border-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h8 {
+    position: absolute;
+    left: 5.93%;
+    right: 42.08%;
+    top: 11.5%;
+    bottom: 70.08%;
+
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 120%;
+    text-transform: uppercase;
+    color: #000000;
+}
+
+@media (max-width: 1024px) {
+    .container {
+        padding: 10px;
+        flex-direction: column;
+    }
+
+    .profile {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .profile-left, .profile-right {
+        width: 90%;
+        margin: 10px 0;
+    }
+    
+    .profile-right {
+        flex: 1;
+    }
+
+    .edit-profile-button {
+        width: 90%;
+    }
+}
+
+@media (max-width: 768px) {
+    .profile-left, .profile-right {
+        width: 100%;
+    }
+}
