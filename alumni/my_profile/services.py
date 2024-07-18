@@ -23,12 +23,14 @@ def get_user_interests(email):
 
 def get_all_users():
     """
-    Retrieve all users from the database as array of their emails
+    Retrieve all users from the database as a list of dictionaries
+    with keys 'alias' and 'location'.
     """
     users_for_map = []
     for user in CustomUser.objects.all():
-        user_data = []
-        user_data.append(user.alias)
-        user_data.append(user.location)
+        user_data = {
+            'alias': user.alias,
+            'location': user.location
+        }
         users_for_map.append(user_data)
     return users_for_map

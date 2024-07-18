@@ -68,11 +68,12 @@ def add_initial_interests(apps, schema_editor):
     Interest = apps.get_model('login', 'Interest')
 
     interests = [
+        'Running', 'Walks', 'Dancing', 'Books', 'Hiking', 'BBQ', 'CV',
         'Frontend', 'Backend', 'Fullstack', 'Data Science', 
         'Machine Learning', 'Artificial Intelligence', 'Cybersecurity', 'Cloud Computing', 
         'DevOps', 'Mobile Development', 'Game Development', 'UX/UI Design', 'Web Development', 
         'Open Source', 'Startups', 'IT-business', 'Networking', 'Psychology', 'Soft Skills', 
-        'Career Development', 'Hackathons', 'Master Classes', 'Alcohol', 'Music', 'Movies', 
+        'Career Development', 'Hackathons', 'Master Classes', 'Bar', 'Music', 'Movies', 
         'Chess', 'Sports', 'Cybersports', 'Volunteering', 'Travel', 'Photography', 
         'Video Editing', 'Podcasts', 'Literature', 'Board Games', 'Cooking', 
         'Self-development', 'Personal growth', 'Health and fitness', 'Ecology', 'Social networking', 
