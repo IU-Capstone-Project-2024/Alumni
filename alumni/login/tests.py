@@ -6,6 +6,7 @@ from .models import CustomUser
 
 User = get_user_model()
 
+
 class UserLoginTests(TestCase):
 
     def setUp(self):
