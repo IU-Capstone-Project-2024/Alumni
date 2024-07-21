@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block style %}
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+<style>
+    body { 
+        font-family: 'Montserrat', sans-serif;
+        color: #40BA21; /* Set font color to #40BA21 */
+    }
+    .header { 
+        text-align: center; 
+        margin-top: 20px; 
+    }
+    .map-container {
+        width: 70%; /* Adjust width as needed */
+        margin: 0 auto; /* Center the map container horizontally */
+        height: 500px; /* Adjust height as needed */
+        margin-bottom: 20px; /* Add space below the map */
+        overflow: hidden; /* Hide overflow to prevent map overflow */
+    }
+    .empty-space {
+        height: 200px; /* Adjust height as needed for empty space */
+    }
+</style>
+{% endblock style %}
+
+{% block title %}
+Alumni Map
+{% endblock title %}
+
+{% block body %}
+<div class="header">
+    <h1>Alumni Map</h1>
+</div>
+<div class="map-container">
+    {{ map_html|safe }}
+</div>
+
+<div class="empty-space"></div>
+{% endblock body %}

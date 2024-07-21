@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'card_request.apps.CardRequestConfig',
     'login',
     'my_profile',
+    'map'
 ]
 
 MIDDLEWARE = [

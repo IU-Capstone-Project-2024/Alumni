@@ -29,6 +29,7 @@ urlpatterns = [
     path("market/", include("market.urls")),
     path("my_profile/", include("my_profile.urls")),
     path("card_request/", include("card_request.urls")),
+    path("map/", include("map.urls")),
 ]
 
 if settings.DEBUG:
