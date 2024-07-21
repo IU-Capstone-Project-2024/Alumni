@@ -157,7 +157,7 @@ AUTHENTICATION_BACKENDS = [
 ]
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = os.environ['EMAIL_HOST']
+EMAIL_HOST = 'mail.innopolis.ru'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = os.environ['EMAIL_HOST_USER']
