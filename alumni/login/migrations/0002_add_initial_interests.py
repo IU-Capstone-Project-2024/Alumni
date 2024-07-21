@@ -14,7 +14,7 @@ def add_initial_interests(apps, schema_editor):
         'Chess', 'Sports', 'Cybersports', 'Volunteering', 'Travel', 'Photography', 
         'Video Editing', 'Podcasts', 'Literature', 'Board Games', 'Cooking', 
         'Self-development', 'Personal growth', 'Health and fitness', 'Ecology', 'Social networking', 
-        'Charity', 'Art'
+        'Charity', 'Art', 'Running', 'Walks', 'Dancing', 'Books', 'Hiking', 'BBQ', 'CV'
     ]
 
     for interest in interests:
