@@ -7,7 +7,7 @@ class Migration(migrations.Migration):
     initial = True
 
     dependencies = [
-        ('login', '0002_add_initial_interests'),
+        ('login', '0002_interest_and_users'),
     ]
 
     operations = [
