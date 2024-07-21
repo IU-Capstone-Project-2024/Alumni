@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from login.models import CustomUser
 from .forms import ProfileForm
+from .services import get_all_users
 
 @login_required
 def profile_view(request):

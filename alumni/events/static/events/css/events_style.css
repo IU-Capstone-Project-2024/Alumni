@@ -1,0 +1,408 @@
+:root {
+    --black-10-percent: rgba(0, 0, 0, .1);
+    --black-8-percent: rgba(0, 0, 0, .08);
+    --green-style-color: #40BA21;
+    --green-style-light-color: #57D93F;
+    --green-style-dark-color: #2E7D17;
+    --main-white: #FFFFFF;
+    --purple: #9747FF;
+    --dark-purple: #6B36B3;
+    --cross-color: #C66;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    overflow-x: hidden;
+    background-color: var(--main-white);
+}
+
+body {
+    font-family: 'IBM Plex Sans', sans-serif;
+}
+
+h1, h2, h3 {
+    font-family: 'Montserrat', sans-serif;
+}
+
+.events-container {
+    padding: 1rem 10% 5rem;
+    position: relative;
+}
+
+.events-container h1 {
+    text-align: center;
+    color: var(--green-style-color);
+    font-size: 2.5rem;
+}
+
+.events-container a {
+    display: inline-block;
+    text-align: right;
+    color: var(--purple);
+    width: 100%;
+    font-size: 1.3rem;
+    margin-top: 1%;
+    font-weight: bolder;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.events-container a:hover {
+    color: var(--dark-purple);
+}
+
+.events-container form {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    margin-top: 6%;
+    width: 100%;
+}
+
+.events-container form select,
+.events-container form select option,
+.events-container form .multiselect-dropdown,
+.events-container form .multiselect-dropdown-search {
+    padding: 10px;
+    border: none;
+    border-bottom: 3px solid #000;
+    margin-right: 5%;
+    font-weight: bold;
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 1.05rem;
+    align-items: center;
+    height: 100%;
+}
+
+.events-container form select:focus,
+.events-container form .multiselect-dropdown:focus,
+.events-container form .multiselect-dropdown-search:focus{
+    outline: none;
+}
+
+.events-container form .multiselect-dropdown {
+    flex: 2;
+}
+
+.events-container form select:not([name="tags"]) {
+    flex: 1;
+}
+
+.events-container form button {
+    color: var(--main-white);
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-weight: bold;
+    font-family: "Montserrat", sans-serif;
+    font-size: 1.15rem;
+    text-align: center;
+}
+
+.events-container form button.apply-button {
+    padding: 13px 40px;
+    background-color: var(--green-style-color);
+}
+
+.events-container form button.apply-button:hover {
+    background-color: var(--green-style-dark-color);
+}
+
+.events-container form .ai-button-container {
+    margin-top: 1.1%;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.events-container form button.ai-button {
+    padding: 6px 15px;
+    background-color: var(--purple);
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    flex-direction: row-reverse;
+}
+
+.events-container form .ai-button-container .button-text {
+    z-index: 1;
+}
+
+.events-container form button.ai-button:hover {
+    background-color: var(--dark-purple);
+}
+
+.star-container .star {
+    transition: filter 0.3s ease;
+}
+
+.events-container form button.ai-button:hover .star-container .star {
+    filter: brightness(1.5);
+}
+
+.star-container {
+    display: flex;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    position: relative;
+    overflow: hidden;
+    margin-right: -7%;
+    z-index: 0;
+}
+
+.star {
+    width: 40px;
+    height: 40px;
+    overflow: hidden;
+    z-index: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
+/* Cards */
+
+.grid-container {
+    margin-top: 1.5rem;
+    display: grid;
+    grid-template-columns: repeat(23, 1fr);
+    grid-auto-rows: 1fr;
+    gap: 16px;
+}
+
+.event-card {
+    background-image: var(--bg-image);
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    font-family: 'Montserrat', sans-serif;
+    padding: 1.7rem;
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+    background-color: rgba(255, 255, 255, 0.2);
+    background-blend-mode: overlay;
+    z-index: 0;
+}
+
+/* 1, 11, ....*/
+.event-card:nth-child(10n-9) {
+    grid-column: 1 / 9;
+}
+
+/* 2, 12, ... */
+.event-card:nth-child(10n-8) {
+    grid-column: 9 / 24;
+}
+
+/* 3, 13, ... */
+.event-card:nth-child(10n-7) {
+    grid-column: 1 / 14;
+}
+
+/* 4, 14, ... */
+.event-card:nth-child(10n-6) {
+    grid-column: 14 / 24;
+}
+
+/* 5, 15, ... */
+.event-card:nth-child(10n-5) {
+    grid-column: 1 / 10;
+}
+
+/* 6, 16, ... */
+.event-card:nth-child(10n-4) {
+    grid-column: 10 / 24;
+}
+
+/* 7, 17, ... */
+.event-card:nth-child(10n-3) {
+    grid-column: 1 / 12;
+}
+
+/* 8, 18, ... */
+.event-card:nth-child(10n-2) {
+    grid-column: 12 / 24;
+}
+
+/* 9, 19, ... */
+.event-card:nth-child(10n-1)  {
+    grid-column: 1 / 15;
+}
+
+/* 10, 20, ... */
+.event-card:nth-child(10n) {
+     grid-column: 15 / 24;
+}
+
+.event-card:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.2);
+    z-index: 0;
+}
+
+.event-card h3 {
+    font-size: 1.5rem;
+    margin: 0;
+    color: var(--main-white);
+    text-shadow: -3px 3px 5px rgba(0, 0, 0, 0.3);
+    z-index: 1;
+}
+
+.event-card .details {
+    font-size: 1.2rem;
+    color: var(--main-white);
+    font-weight: bold;
+    flex-grow: 1;
+    text-shadow: -3px 3px 5px rgba(0, 0, 0, 0.3);
+    z-index: 1;
+}
+
+.event-card .read-more {
+    margin-top: 10%;
+    margin-bottom: 1%;
+    text-align: left;
+    z-index: 1;
+}
+
+.event-card .read-more a {
+    display: inline;
+    text-decoration: none;
+    padding: 13px 20px;
+    color: var(--main-white);
+    font-weight: bold;
+    font-size: 1.3rem;
+    text-align: left;
+    background: black;
+    border: 2px solid black;
+    border-radius: 28px;
+    transition: color 0.3s, background-color 0.3s, border-color 0.3s;
+}
+
+.event-card .read-more a:hover {
+    color: black;
+    background-color: var(--main-white);
+    border-color: var(--main-white);
+}
+
+/* Dropdown select style */
+
+.multiselect-dropdown {
+    display: inline-block;
+    padding: 2px 5px 0px 5px;
+    background-color: white;
+    position: relative;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23000000' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/%3e%3c/svg%3e");;
+    background-repeat: no-repeat;
+    background-position: right .75rem center;
+    background-size: 16px 12px;
+}
+
+.multiselect-dropdown span.optext, .multiselect-dropdown span.placeholder{
+    margin-right: 0.5em;
+    padding: 0;
+    border-radius: 4px;
+    display: inline-block;
+}
+
+.multiselect-dropdown span.optext.maxselected {
+    background-color: var(--main-white);
+    padding: 0;
+}
+
+.multiselect-dropdown span.optext{
+    background-color: rgba(64, 186, 33, 0.5);
+    padding: 1px 0.75em;
+}
+
+.multiselect-dropdown span.optext .optdel {
+    float: right;
+    margin: 2px -6px 1px 5px;
+    font-size: 0.7em;
+    cursor: pointer;
+    color: black;
+}
+
+.multiselect-dropdown span.optext .optdel:hover { color: var(--cross-color);}
+
+.multiselect-dropdown span.placeholder{
+    color: black;
+}
+
+.multiselect-dropdown-list-wrapper{
+    box-shadow: rgb(128, 128, 128) 0 3px 8px;
+    z-index: 100;
+    padding: 2px;
+    border-radius: 4px;
+    border: solid 1px #ced4da;
+    display: none;
+    margin: -1px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: var(--main-white);
+}
+.multiselect-dropdown-list-wrapper .multiselect-dropdown-search{
+    margin-bottom:5px;
+}
+
+.multiselect-dropdown-list{
+    padding: 2px;
+    height: 15rem;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.multiselect-dropdown-list::-webkit-scrollbar {
+    width: 6px;
+}
+
+.multiselect-dropdown-list::-webkit-scrollbar-thumb {
+    background-color: #bec4ca;
+    border-radius: 3px;
+}
+
+.multiselect-dropdown-list div{
+    padding: 5px;
+}
+
+.multiselect-dropdown-list input{
+    height: 1.15em;
+    width: 1.15em;
+    margin-right: 0.35em;
+}
+
+.multiselect-dropdown-list div.checked{
+}
+
+.multiselect-dropdown-list div:hover{
+    background-color: #ced4da;
+}
+
+.multiselect-dropdown span.maxselected {
+    max-width: 90%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.multiselect-dropdown-all-selector {border-bottom: solid 1px #999;}

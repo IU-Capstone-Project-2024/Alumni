@@ -3,16 +3,24 @@
 
 {% block style %}
 <link rel="stylesheet" href="{% static 'my_profile/styles_profile.css' %}">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" rel="stylesheet" />
 {% endblock style %}
+
+<style>
+    .scrollable-interests {
+        max-height: 200px;
+        overflow-y: auto;
+        margin-top: 50px;
+    }
+</style>
 
 {% block title %}
 Edit profile
 {% endblock title %}
 
 {% block body %}
-    <div class="back-button">
-        <a href="#"><img src="{%static 'my_profile/back-arrow.png' %}" alt="Back"></a>
-    </div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
     <div class="container">
         <h2>Edit Profile</h2>
         <form method="POST" enctype="multipart/form-data">
@@ -21,7 +29,7 @@ Edit profile
                 <div class="profile-left">
                     <div class="profile-picture">
                         <label for="id_user_photo" style="display: block; margin-bottom: 5px;"></label>
-                        <img src="{% if user_profile.user_photo %}{{ user_profile.user_photo.url }}{% else %}{% static 'my_profile/user_photo.png' %}{% endif %}" alt="Profile Picture" style="width: 201px;
+                        <img src="{% if request.user.user_photo %}{{ request.user.user_photo.url }}{% else %}{% static 'my_profile/user_photo.jpg' %}{% endif %}" alt="Profile Picture" style="width: 201px;
                     height: 194px;
                     position: absolute;
                     top: 0.1%;
@@ -34,6 +42,9 @@ Edit profile
                     <div class="profile-details">
                         <div class="profile-info">
                             <h4>
+                                <label for="id_alias">Alias:</label>
+                                <input type="text" name="alias" id="id_alias" value="{{ form.alias.value }}" style="width: 170%; height: 25px; border-radius: 7px;">
+
                                 <label for="id_graduation_year">Graduation Year:</label>
                                 <input type="number" name="graduation_year" id="id_graduation_year" value="{{ form.graduation_year.value }}" style="width: 170%; height: 25px; border-radius: 7px;">
                                 
@@ -43,22 +54,23 @@ Edit profile
                                 <label for="id_company">Company:</label>
                                 <input type="text" name="company" id="id_company" value="{{ form.company.value }}" style="width: 170%; height: 25px; border-radius: 7px;">
                                 
-                                <label for="id_location">Location:</label>
+                                <label for="id_location">City:</label>
                                 <input type="text" name="location" id="id_location" value="{{ form.location.value }}" style="width: 170%; height: 25px; border-radius: 7px;"></h4>
                         </div>
                     </div>
                 </div>
                 <div class="profile-right">
                     <div class="section-interests">
-                        <h5><label for="id_interests">Interests:</label>
-                            <textarea name="interests" id="id_interests" style="width: 470px; height: 225px; background-color: #EDF1F5; border-color: #EDF1F5;">
-                                {{ form.interests.value }}</textarea></h5>
+                        <h5><label for="id_interests">Interests:</label></h5>
+                            <h7><div class="scrollable-interests">
+                                {{ form.interests }}
+                            </div></h7>
+
                         
                     </div>
                     <div class="section-activities">
-                        <h5><label for="id_activities">Activities:</label>
-                            <textarea name="activities" id="id_activities" style="width: 470px; height: 395px; background-color: #EDF1F5; border-color: #EDF1F5;">
-                                {{ form.activities.value }}</textarea></h5>
+                        <h5>CURRENT ACTIVITIES</h5>
+                        <h8>{% if user_profile.activities %}{{user_profile.activities | safe}}{% else %}{% endif %}</h8>
                     </div>
                 </div>
             </div>
@@ -71,4 +83,5 @@ Edit profile
             </div>
             </form>
         </div>
+<div style="height: 200px;"></div>
 {% endblock body %}

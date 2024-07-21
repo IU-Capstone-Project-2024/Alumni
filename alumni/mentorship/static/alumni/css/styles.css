@@ -1,0 +1,45 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    position: relative;
+    margin-bottom: 300px;
+}
+
+.navbar {
+    top: 0;
+    z-index: 1000;
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 7%;
+    width: 100%;
+    padding: 0 25px;
+    box-sizing: border-box;
+    box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.3);
+    background-color: white;
+}
+
+.uni_logo img {
+    height: 100%; /* Adjust the height to fit the navbar */
+    max-height: 40px; /* Ensure the logo doesn't get too large */
+    width: auto;
+}
+
+.icons {
+    display: flex;
+    align-items: center;
+}
+
+.myicon {
+    margin-left: 25px; /* Space between the icons */
+}
+
+.myicon img {
+    height: 35px; /* Adjust the size as needed */
+    width: auto;
+}

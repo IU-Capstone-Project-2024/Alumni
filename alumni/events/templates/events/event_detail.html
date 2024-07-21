@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+{{ event.event_name }}
+{% endblock title %}
+
+{% block style %}
+<link rel="stylesheet" href="{% static 'events/css/event_detail_style.css' %}">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+{% endblock style %}
+
+{% block body %}
+<div class="event-details">
+    <div class="event-image">
+        <img src="{{ event.picture.url }}" alt="{{ event.event_name }}">
+    </div>
+    <div class="event-main-info">
+        <div class="button-container">
+            <h2>{{ event.event_name }}</h2>
+             <form method="POST" id="sign-up-cancel-form">
+                {% csrf_token %}
+                 <input type="hidden" name="activity" value="{{ event.link }}">
+                 <button type="submit" class="sign-up-button">Check in</button>
+             </form>
+        </div>
+        <div class="tags">
+            {% for tag in event.tags.all %}
+                <span>{{ tag.name }}</span>
+            {% endfor %}
+        </div>
+        <p>{{ event.country }}, {{ event.city }}, {{ event.address }}</p>
+        <p>{{ event.date|date:"d.m.Y, H:i" }}</p>
+        <p>Event organizer: {{ event.author_name }} {{ event.author_surname }}</p>
+        <p>Email: {{ event.author_email }}</p>
+        <p>Telegram: {{ event.author_alias }}</p>
+    </div>
+    <div class="description">
+        <p>Description: {{ event.description }}</p>
+    </div>
+</div>
+<script src="{% static 'events/js/event_detail.js' %}"></script>
+{% endblock body %}

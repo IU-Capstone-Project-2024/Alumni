@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+Donation Page
+{% endblock title %}
+
+{% block style %}
+<link rel="stylesheet" href="{% static 'donation/css/donation.css' %}">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+{% endblock style %}
+
+{% block body %}
+<div class="container">
+    <h1>Thank you for considering a gift to Innopolis University. If you have questions or need assistance making a donation, you can call 893745690968 or email i.innopolis@university.</h1>
+    <h2>How to make a Donation?</h2>
+    <ul>
+        <li>Fill the form below</li>
+        <li>Send the request</li>
+        <li>Get a bank account number in email</li>
+        <li>Send the Donation!</li>
+    </ul>
+    <form class="donation-form active" onsubmit="handleSubmit(event)">
+        <input type="text" name="name" placeholder="Name" required>
+        <input type="text" name="surname" placeholder="Surname" required>
+        <input type="email" name="email" placeholder="Email *" required>
+        <input type="text" name="telegram" placeholder="Telegram alias">
+        <textarea name="description" placeholder="Description"></textarea>
+        <button type="submit">SEND</button>
+    </form>
+    <div class="thank-you-message">
+        <h1>Thank you for your donation!</h1>
+    </div>
+</div>
+<script>
+    function handleSubmit(event) {
+        event.preventDefault();
+        document.querySelector('.donation-form').classList.remove('active');
+        document.querySelector('h2').style.display = 'none';
+        document.querySelector('ul').style.display = 'none';
+        document.querySelector('.thank-you-message').classList.add('active');
+    }
+</script>
+{% endblock body %}
+ 

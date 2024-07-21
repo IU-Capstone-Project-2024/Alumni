@@ -1,25 +1,31 @@
 from django import forms
-from login.models import CustomUser
+from django_select2.forms import Select2TagWidget
+from login.models import CustomUser, Interest
 
 class ProfileForm(forms.ModelForm):
+    interests = forms.ModelMultipleChoiceField(
+        queryset=Interest.objects.all(),
+        widget=forms.CheckboxSelectMultiple(attrs={'class' : 'select2'}),
+        required=False
+    )
     class Meta:
         model = CustomUser
         fields = [
             'user_photo',
+            'alias',
             'graduation_year',
             'position',
             'company',
             'location',
             'interests',
-            'activities'
         ]
         widgets = {
+            'alias': forms.TextInput(attrs={'class': 'form-control'}),
             'graduation_year': forms.NumberInput(attrs={'class': 'form-control'}),
             'position': forms.TextInput(attrs={'class': 'form-control'}),
             'company': forms.TextInput(attrs={'class': 'form-control'}),
             'location': forms.TextInput(attrs={'class': 'form-control'}),
-            'interests': forms.Textarea(attrs={'class': 'form-control'}),
-            'activities': forms.Textarea(attrs={'class': 'form-control'}),
+            'interests': Select2TagWidget(attrs={'class': 'form-control'}),
         }
 
     user_photo = forms.ImageField(required=False)
@@ -27,7 +33,6 @@ class ProfileForm(forms.ModelForm):
     position = forms.CharField(required=False)
     company = forms.CharField(required=False)
     location = forms.CharField(required=False)
-    interests = forms.CharField(widget=forms.Textarea, required=False)
     activities = forms.CharField(widget=forms.Textarea, required=False)
 
     

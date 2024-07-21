@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+Clubs & Events
+{% endblock title %}
+
+{% block style %}
+<link rel="stylesheet" href="{% static 'events/css/events_style.css' %}">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+{% endblock style %}
+
+
+{% block body %}
+<div class="events-container">
+    <h1>Upcoming Events</h1>
+    <a href="https://forms.gle/JyK2kJBFwekdgNFK7">Create your event!</a>
+    <form method="GET" id="filter-form">
+        <select name="country" id="country">
+            <option value="">Country: any</option>
+            {% for country in countries %}
+            <option value="{{ country }}">{{ country }}</option>
+            {% endfor %}
+        </select>
+        <select name="city" id="city">
+            <option value="">City: any</option>
+            {% for city in cities %}
+            <option value="{{ city }}">{{ city }}</option>
+            {% endfor %}
+        </select>
+        <select name="tags" id="tags" multiple multiselect-search="true">
+            {% for tag in tags %}
+            <option value="{{ tag }}">{{ tag }}</option>
+            {% endfor %}
+        </select>
+        <div class="apply-button-container">
+            <button class="apply-button" type="submit" name="action" value="apply">Apply</button>
+        </div>
+        <div class="ai-button-container">
+            <button class="ai-button" type="submit" name="action" value="ai">
+                <span class="button-text">AI Recommendation</span>
+                <span class="star-container">
+                    <img src="{% static 'events/pictures/star.svg' %}" alt="" class="star">
+                </span>
+            </button>
+        </div>
+    </form>
+    <div class="grid-container">
+        {% for event in events %}
+        <div class="event-card" style="--bg-image: url('{{ event.picture.url }}')">
+            <h3>{{ event.event_name }}</h3>
+            <div class="details">
+                <p>{{ event.country }}, {{ event.city }}</p>
+                <p>{{ event.date|date:"d.m.Y" }}</p>
+            </div>
+            <div class="read-more">
+                <a href="{{ event.link }}">Read more</a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+<script src="{% static 'events/js/events_script.js' %}"></script>
+{% endblock body %}

@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+Mentorship Welcome
+{% endblock title %}
+
+{% block style %}
+<link rel="stylesheet" href="{% static 'mentorship/css/styles.css' %}">
+{% endblock style %}
+
+{% block body %}
+<div class="content-row">
+    <img class="pupils_image" src="{% static 'mentorship/pictures/pupils.jpg' %}" alt="Pupils">
+    <div class="mentorship-content">
+        <h1 class="top_header">MENTORSHIP</h1>
+        <p class="text_paragraph">Mentorship is a great opportunity for you to help students and guide them through the tough aspects of university life.</p>
+        <p class="text_paragraph">You can either become a mentor for a group of 3-5 people or for individual students.</p>
+        <a href="{% url 'form' %}" class="button">BECOME A MENTOR</a>
+    </div>
+</div>
+<div style="height: 200px;"></div>
+{% endblock body %}
