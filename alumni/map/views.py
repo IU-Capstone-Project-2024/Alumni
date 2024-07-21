@@ -1,32 +1,3 @@
-# # In map/views.py
-# from django.shortcuts import render
-# from .models import CustomUser  # Adjust the import based on your actual models.py location
-# from geopy.geocoders import Nominatim
-# import json
-
-# def map_view(request):
-#     users = CustomUser.objects.all()
-#     geolocator = Nominatim(user_agent="alumni_site")
-#     profiles = []
-
-#     for user in users:
-#         if user.city and user.country:
-#             location = f"{user.city}, {user.country}"
-#             loc = geolocator.geocode(location)
-#             if loc:
-#                 profiles.append({
-#                     'username': f"{user.first_name} {user.last_name}",
-#                     'latitude': loc.latitude,
-#                     'longitude': loc.longitude
-#                 })
-
-#     context = {
-#         'profiles_json': json.dumps(profiles)
-#     }
-#     return render(request, 'map.html', context)
-
-# map/views.py
-
 # map/views.py
 import folium
 from django.shortcuts import render
@@ -42,9 +13,10 @@ def map_view(request):
 
         for user in users:
             coordinates = [user['latitude'], user['longitude']]
+            print(coordinates, user['email'])
             folium.Marker(
                 location=coordinates,
-                popup=f"{user['alias']}"
+                popup=f"{user['email']}"
             ).add_to(alumni_map)
 
         map_html = alumni_map._repr_html_()
