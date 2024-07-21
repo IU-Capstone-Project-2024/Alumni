@@ -25,6 +25,7 @@ def form(request):
                 [settings.EMAIL_TO],
                 fail_silently=False,
             )
+        return redirect('thank_you')
         
     return render(request, 'mentorship/form.html')
 

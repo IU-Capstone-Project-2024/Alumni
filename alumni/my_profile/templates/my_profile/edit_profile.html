@@ -29,7 +29,7 @@ Edit profile
                 <div class="profile-left">
                     <div class="profile-picture">
                         <label for="id_user_photo" style="display: block; margin-bottom: 5px;"></label>
-                        <img src="{% if form.user_photo %}{{ form.user_photo.url }}{% else %}{% static 'my_profile/user_photo.jpg' %}{% endif %}" alt="Profile Picture" style="width: 201px;
+                        <img src="{% if request.user.user_photo %}{{ request.user.user_photo.url }}{% else %}{% static 'my_profile/user_photo.jpg' %}{% endif %}" alt="Profile Picture" style="width: 201px;
                     height: 194px;
                     position: absolute;
                     top: 0.1%;
@@ -83,4 +83,5 @@ Edit profile
             </div>
             </form>
         </div>
+<div style="height: 200px;"></div>
 {% endblock body %}

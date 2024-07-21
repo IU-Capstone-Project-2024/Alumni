@@ -11,7 +11,7 @@ def get_user_profile(email):
     
 def get_user_interests(email):
     """
-    Get user interests for a given email
+    Get user interests for a given email as array
     """
     profile = get_user_profile(email)
     array_interests = []
@@ -20,14 +20,20 @@ def get_user_interests(email):
             array_interests.append(int.name)
     return array_interests
 
-def get_user_location(email):
+
+def get_all_users():
     """
-    Get user location for a given email
+    Retrieve all users from the database as a list of dictionaries
+    with keys 'alias' and 'location'.
     """
-    profile = get_user_profile(email)
-    if profile:
-        return profile.location
-    return None
+    users_for_map = []
+    for user in CustomUser.objects.all():
+        user_data = {
+            'alias': user.alias,
+            'location': user.location
+        }
+        users_for_map.append(user_data)
+    return users_for_map
 
 def get_user_alias(email):
     """
