@@ -19,7 +19,6 @@ def edit_profile(request):
     user_profile = request.user
     if request.method == 'POST':
         form = ProfileForm(request.POST, request.FILES, instance=request.user)
-        print(get_all_users())
         if form.is_valid():
             user_profile.save()
             form.save()
