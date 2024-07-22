@@ -14,7 +14,8 @@ class UserLoginTests(TestCase):
             email='test@example.com',
             password='password123',
             first_name='Test',
-            last_name='User'
+            last_name='User',
+            location="Innopolis"
         )
 
     def test_login_page_status_code(self):
