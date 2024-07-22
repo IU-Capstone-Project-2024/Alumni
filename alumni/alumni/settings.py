@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'card_request',
     'login',
     'my_profile',
+    'map',
     'aichat',
     'donation',
     'events',
