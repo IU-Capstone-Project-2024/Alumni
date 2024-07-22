@@ -12,7 +12,7 @@ class EventsViewsTestCase(TestCase):
     def setUp(self):
         self.client = Client()
         self.user = CustomUser.objects.create_user(email='testuser@example.com', password='password', first_name="Test",
-                                                   last_name="Test")
+                                                   last_name="Test", location="Innopolis")
         self.interest1 = Interest.objects.create(name='Interest1')
         self.interest2 = Interest.objects.create(name='Interest2')
         self.event1 = Events.objects.create(
