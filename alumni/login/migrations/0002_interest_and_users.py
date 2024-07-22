@@ -13,13 +13,13 @@ def create_custom_users(apps, schema_editor):
             "password": "alumnitestpass",
             "location": "Moscow",
         },
-        # {
-        #     "email": "user1@example.com",
-        #     "first_name": "User",
-        #     "last_name": "One",
-        #     "password": "password1",
-        #     "location": "Minsk",
-        # },
+        {
+            "email": "user1@example.com",
+            "first_name": "User",
+            "last_name": "One",
+            "password": "password1",
+            "location": "Minsk",
+        },
         {
             "email": "user2@example.com",
             "first_name": "User",
