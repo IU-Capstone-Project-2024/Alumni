@@ -13,7 +13,8 @@ class UserProfileTests(TestCase):
             email='testuser@example.com',
             first_name='Test',
             last_name='User',
-            password='testpassword'
+            password='testpassword',
+            location='TestLocation'
         )
 
         self.client.login(email='testuser@example.com', password='testpassword')
