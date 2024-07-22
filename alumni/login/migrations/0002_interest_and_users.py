@@ -10,37 +10,43 @@ def create_custom_users(apps, schema_editor):
             "email": "alumni@innopolis.com",
             "first_name": "Alumni",
             "last_name": "Test",
-            "password": "alumnitestpass"
+            "password": "alumnitestpass",
+            "location": "Moscow",
         },
         {
             "email": "user1@example.com",
             "first_name": "User",
             "last_name": "One",
-            "password": "password1"
+            "password": "password1",
+            "location": "Minsk",
         },
         {
             "email": "user2@example.com",
             "first_name": "User",
             "last_name": "Two",
-            "password": "password2"
+            "password": "password2",
+            "location": "London",
         },
         {
             "email": "user3@example.com",
             "first_name": "User",
             "last_name": "Three",
-            "password": "password3"
+            "password": "password3",
+            "location": "Barnaul",
         },
         {
             "email": "user4@example.com",
             "first_name": "User",
             "last_name": "Four",
-            "password": "password4"
+            "password": "password4",
+            "location": "Sidney",
         },
         {
             "email": "user5@example.com",
             "first_name": "User",
             "last_name": "Five",
-            "password": "password5"
+            "password": "password5",
+            "location": "Kiyv",
         },
         
     ]
@@ -50,7 +56,8 @@ def create_custom_users(apps, schema_editor):
             email=user_data["email"],
             first_name=user_data["first_name"],
             last_name=user_data["last_name"],
-            password=user_data["password"]
+            password=user_data["password"],
+            location=user_data["location"]
         )
         user.save()
         
