@@ -39,5 +39,5 @@ RUN python alumni/manage.py createsuperuser --noinput --email $DJANGO_SUPERUSER_
 # Expose the port the app runs on
 EXPOSE 8000
 
-# Run the application
+# Run the app
 CMD ["python", "alumni/manage.py", "runserver", "0.0.0.0:8000"]
