@@ -6,7 +6,6 @@ def intro(request):
     return render(request, 'mentorship/intro.html')
 
 def form(request):
-    print(request.method)
     if request.method == 'POST':
         print("Method is post")
         about_you = request.POST.get('about-you')
