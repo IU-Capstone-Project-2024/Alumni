@@ -28,7 +28,7 @@ class CustomUserManager(BaseUserManager):
         extra_fields.setdefault('is_staff', True)
         extra_fields.setdefault('is_superuser', True)
 
-        return self.create_user(email, first_name, last_name, password, **extra_fields)
+        return self.create_user(email, first_name, last_name, location="Innopolis", password, **extra_fields)
     
 class CustomUser(AbstractBaseUser, PermissionsMixin):
     email = models.EmailField(unique=True)
